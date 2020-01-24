@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Greer Page's personal website">
+    <meta name="author" content="Greer Page">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+    <title>Greer Page</title>
+    <link rel="icon" href="{% static '/images/favicon.jpg' %}" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="homeimg">
+        <div class="topbuttons">
+            <button class="hiddenbtn" onclick="Slide('smallmenu')"><i class="fas fa-bars fa-2x"></i></button>
+            <a class="link" href="/">Greer Page</a>
+            <a class="link" href="about/">About</a>
+            <a class="link0" href="/">Greer Page</a>
+        </div>
+        <div class="smallmenu closed" id="smallmenu">
+            <a class="link10" href="about/">About</a>
+            <a class="link10" href="software/">Software</a>
+        </div>
+        <div class="buttons">
+            <a href="https://www.instagram.com/ggrreeeeerr/" target="_blank"><img src="{% static '/images/icons/insta.png' %}" class="lnk"></a>
+            <a href="https://www.youtube.com/channel/UCbjU4j8OkUWFNug8UFf-E1w" target="_blank"><img src="{% static '/images/icons/yt.png' %}" class="lnk"></a>
+            <a href="https://github.com/GreerPage" target="_blank"><img src="{% static '/images/icons/github.png' %}" class="lnk"></a>
+            <a href="https://repl.it/@greer" target="_blank"><img src="{% static '/images/icons/repl.png' %}" class="lnk"></a>
+            <a href="https://open.spotify.com/user/mrmcmallow?si=V0Tedh3UTA2iKW4-whJF1Q" target="_blank"><img src="{% static '/images/icons/spotify.png' %}" class="lnk"></a>
+        </div>
+        <div class="caption">
+            <p>Puget Sound, July, 2019</p>
+        </div>
+    </div>
+</body>
+</html>

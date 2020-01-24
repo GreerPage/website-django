@@ -1,0 +1,202 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+.btn {
+  background-color: Transparent; 
+  border: 4px solid transparent; 
+  color: white; 
+  font-size: 8px; 
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 12px;
+}
+.btn:hover {
+  opacity: 0.6;
+}
+.buttons {
+  position: absolute;
+  top: 30%;
+  left: 10px;
+}
+.lnk{
+  height: 30px;
+  width: 30px;
+  display: block;
+  padding: 5px;
+}
+.lnk:hover{
+  opacity: 0.6;
+}
+.lnk1{
+  height: 45px;
+  width: 45px;
+  padding: 10px;
+}
+.lnk1:hover{
+  opacity: 0.6;
+}
+.pagebottoms{
+  background-color: #282828;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+}
+.pagebottomtext{
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  top: 50px;
+}
+.links{
+  text-align: center;
+  position: relative;
+  top: 20%;
+}
+.link{
+  text-decoration:none;
+  color: white; 
+  font-size: 20px; 
+  cursor: pointer;
+  padding: 30px;
+  border-radius: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+.link1{
+  z-index: 11;
+  text-decoration:none;
+  color: black; 
+  font-size: 20px; 
+  cursor: pointer;
+  padding: 30px;
+  border-radius: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+.topbuttons{
+  position: absolute;
+  top: 30px;
+  left: 15px;
+}
+
+.homeimg{
+  background-image: url("images/img1.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-position: fixed;
+  background-repeat: no-repeat;
+}
+.aboutimg{
+  background-color: white;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-position: fixed;
+  background-repeat: no-repeat;
+}
+.about-text{
+  color: black;
+  position: absolute;
+  top: 0px;
+  left: 25%;
+}
+.caption{
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.link0{
+  display: none;
+}
+.hiddenbtn{
+  display: none;
+}
+.link10{
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .topbuttons {
+    z-index: 11;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .link{
+    display: none;
+  }
+  .link1{
+    display: none;
+  }
+  .link0{
+    display: inline;
+    text-decoration:none;
+    color: #313131; 
+    font-size: 20px; 
+    cursor: pointer;
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 20px; 
+    left: 10%;
+  }
+  .hiddenbtn{
+    display: inline;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    color: #565656;
+    position: relative;
+    top: 20px; 
+    left: 85%;
+  }
+  .hiddenbtn:hover{
+    opacity: 0.6;
+  }
+  .smallmenu{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    z-index: 10;
+    height: 180px;
+    max-height: 180px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  }
+  .smallmenu.closed{
+    max-height: 0;
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  }
+  .smallmenu.closed1{
+    display: none;
+  }
+  .link10{
+    display: block;
+    z-index: 12;
+    text-decoration:none;
+    color: #313131; 
+    font-size: 20px; 
+    cursor: pointer;
+    padding-bottom: 30px;
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    top: 70px;
+    left: 10%;
+  }
+}
