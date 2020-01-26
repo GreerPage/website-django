@@ -127,3 +127,5 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+ALLOWED_HOSTS = ['192.168.0.23', 'greerpage.com']
+
