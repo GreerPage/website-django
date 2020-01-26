@@ -18,9 +18,10 @@ from django.urls import path
 from homepage import views as viewshome
 from about import views as viewsabout
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from websiteDjango import views as rootviews
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('', viewshome.index),
     path('about/', viewsabout.index)
 ]
