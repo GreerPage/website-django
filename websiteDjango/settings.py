@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import mimetypes
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,16 +23,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=mbs%f%c=_u+0bms31&iy11lmia0nlw0a*=z@5m-depq3jm_x$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-mimetypes.add_type("text/css", ".css", True)
 
 # Application definition
 
 INSTALLED_APPS = [
     'about',
     'homepage',
+    'projects',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

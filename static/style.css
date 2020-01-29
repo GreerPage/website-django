@@ -70,7 +70,7 @@ html, body {
 .link1{
   z-index: 11;
   text-decoration:none;
-  color: black; 
+  color: #313131; 
   font-size: 20px; 
   cursor: pointer;
   padding: 30px;
@@ -78,6 +78,7 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 .topbuttons{
+  z-index: 100;
   position: absolute;
   top: 30px;
   left: 15px;
@@ -93,7 +94,7 @@ html, body {
 }
 .aboutimg{
   background-color: white;
-  height: 100vh;
+  height: 975px;
   background-size: cover;
   background-position: center center;
   background-position: fixed;
@@ -107,11 +108,21 @@ html, body {
   background-position: fixed;
   background-repeat: no-repeat;
 }
-.about-text{
-  color: black;
+.abouttextbox{
+  height: 100%;
+  width: 75%;
+  background-color: white;
   position: absolute;
-  top: 0px;
-  left: 25%;
+  left: 50%;
+  transform: translatex(-50%);
+  z-index: 1;
+}
+.abouttext{
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #313131;
+  position: absolute;
+  top: 150px;
 }
 .caption{
   color: white;
@@ -121,14 +132,14 @@ html, body {
   right: 5px;
 }
 .centertext{
-  color: black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    text-align: center;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+  color: #313131;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 .link0{
   display: none;
@@ -156,6 +167,7 @@ html, body {
     display: none;
   }
   .link0{
+    z-index: 11;
     display: inline;
     text-decoration:none;
     color: #313131; 
