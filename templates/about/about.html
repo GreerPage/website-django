@@ -28,30 +28,28 @@
             <a class="link10" href="/about">About</a>
             <a class="link10" href="/projects">Projects</a>
         </div>
-        <div class="about"></div>
-        <div class="abouttextbox">
-            <div class="abouttext">
-                <p style="font-size: 35px; padding-bottom: 20px;">About</p>
-                <p style="font-size: 20px; padding-bottom: 20px;">This website is hosted on a Raspberry Pi 4 using apache2. I am using cloudflare's free ssl service for encryption. I originally wrote the website in html, css, and javascript, until I decided to that it would be a good idea to learn something new. So I rewrote the website in a python web framework called Django. The code can be found on my GitHub.</p>   
-                <p style="font-size: 25px; padding-bottom: 20px;">PC Parts:</p>
-                
-                <ul style="font-size: 20px; color: #313131; text-decoration:none;">
-                    {% block content %}
-                    <li><a style="color: #313131;" href={{links.0}} target="_blank">Ryzen 5 2600</a></li>
-                    <li><a style="color: #313131;" href={{links.1}} target="_blank">Corsair 16GB RAM 3000MHZ</a></li>
-                    <li><a style="color: #313131;" href={{links.2}} target="_blank">ASRock X470 Master SLI/AC</a></li>
-                    <li><a style="color: #313131;" href={{links.3}} target="_blank">Gigabyte 1660</a></li>
-                    <li><a style="color: #313131;" href={{links.4}} target="_blank">Corsair CX 550M</a></li>
-                    <li><a style="color: #313131;" href={{links.5}} target="_blank">Corsair Carbide 275r</a></li>
-                    <li><a style="color: #313131;" href={{links.6}} target="_blank">Adata 480GB SSD</a></li>
-                    <li><a style="color: #313131;" href={{links.7}} target="_blank">Seagate BarraCuda 2TB</a></li>
-                    <li><a style="color: #313131;" href={{links.8}} target="_blank">TT RGB Fans</a></li>
-                    {% endblock %}
-                </ul>
-                
-            </div>
+        <div class="abouttext">
+            <p style="font-size: 35px; padding-bottom: 20px;">About</p>
+            <p style="font-size: 20px; padding-bottom: 20px;">This website is hosted on a Raspberry Pi 4 using apache2. I am using cloudflare's free ssl service for encryption. I originally wrote the website in html, css, and javascript, until I decided to that it would be a good idea to learn something new. So I rewrote the website in a python web framework called Django. The code can be found on my GitHub.</p>   
+            <p style="font-size: 25px; padding-bottom: 20px;">PC Parts:</p>
+            
+            <ul style="font-size: 20px; color: #313131; text-decoration:none;">
+                {% block content %}
+                <li><a style="color: #313131;" href={{links.0}} target="_blank">Ryzen 5 2600</a></li>
+                <li><a style="color: #313131;" href={{links.1}} target="_blank">Corsair 16GB RAM 3000MHZ</a></li>
+                <li><a style="color: #313131;" href={{links.2}} target="_blank">ASRock X470 Master SLI/AC</a></li>
+                <li><a style="color: #313131;" href={{links.3}} target="_blank">Gigabyte 1660</a></li>
+                <li><a style="color: #313131;" href={{links.4}} target="_blank">Corsair CX 550M</a></li>
+                <li><a style="color: #313131;" href={{links.5}} target="_blank">Corsair Carbide 275r</a></li>
+                <li><a style="color: #313131;" href={{links.6}} target="_blank">Adata 480GB SSD</a></li>
+                <li><a style="color: #313131;" href={{links.7}} target="_blank">Seagate BarraCuda 2TB</a></li>
+                <li><a style="color: #313131;" href={{links.8}} target="_blank">TT RGB Fans</a></li>
+                {% endblock %}
+            </ul>
+            
         </div>
     </div>
+    
     <div class="pagebottoms">
         <div class="pagebottomtext">
             <p>L i n k s</p>
