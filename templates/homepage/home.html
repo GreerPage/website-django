@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% block content %}
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -29,15 +30,16 @@
             <a class="link10" href="/projects">Projects</a>
         </div>
         <div class="buttons">
-            <a href="https://www.instagram.com/ggrreeeeerr/" target="_blank"><img src="{% static '/images/icons/insta.png' %}" class="lnk"></a>
-            <a href="https://www.youtube.com/channel/UCbjU4j8OkUWFNug8UFf-E1w" target="_blank"><img src="{% static '/images/icons/yt.png' %}" class="lnk"></a>
-            <a href="https://github.com/GreerPage" target="_blank"><img src="{% static '/images/icons/github.png' %}" class="lnk"></a>
-            <a href="https://repl.it/@greer" target="_blank"><img src="{% static '/images/icons/repl.png' %}" class="lnk"></a>
-            <a href="https://open.spotify.com/user/mrmcmallow?si=V0Tedh3UTA2iKW4-whJF1Q" target="_blank"><img src="{% static '/images/icons/spotify.png' %}" class="lnk"></a>
+            <a href={{medialinks.0}} target="_blank"><img src="{% static '/images/icons/insta.png' %}" class="lnk"></a>
+            <a href={{medialinks.1}} target="_blank"><img src="{% static '/images/icons/yt.png' %}" class="lnk"></a>
+            <a href={{medialinks.2}} target="_blank"><img src="{% static '/images/icons/github.png' %}" class="lnk"></a>
+            <a href={{medialinks.3}} target="_blank"><img src="{% static '/images/icons/repl.png' %}" class="lnk"></a>
+            <a href={{medialinks.4}} target="_blank"><img src="{% static '/images/icons/spotify.png' %}" class="lnk"></a>
         </div>
         <div class="caption">
             <p>Puget Sound, July, 2019</p>
         </div>
     </div>
 </body>
+{% endblock %}
 </html>

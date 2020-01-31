@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from webvars import vars
 
 # Create your views here.
 def index(request):
-    return render(request, 'projects/projects.html')
+    context = {
+        'medialinks': vars.medialinks,
+    }
+    return render(request, 'projects/projects.html', context)

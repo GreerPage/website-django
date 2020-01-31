@@ -1,5 +1,6 @@
 <!DOCTYPE html> 
 <html lang=en>
+{% block content %}
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -15,7 +16,6 @@
     <link rel="icon" href="{% static '/images/favicon.jpg' %}" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu&display=swap" rel="stylesheet"> 
 </head>
-{% block content %}
 <body>
     <div class="topbuttons">
         <button class="hiddenbtn" onclick="Slide('smallmenu')"><i class="fas fa-bars fa-2x"></i></button>
@@ -32,7 +32,7 @@
         
         <div class="abouttext">
             <p style="font-size: 35px; padding-bottom: 20px; margin: 0;">About</p>
-            <p style="font-size: 20px; padding-bottom: 20px;">This website is hosted on a Raspberry Pi 4 using apache2. I am using cloudflare's free ssl service for encryption. I originally wrote the website in html, css, and javascript, until I decided to that it would be a good idea to learn something new. So I rewrote the website in a python web framework called Django. The code can be found on my GitHub.</p>   
+            <p style="font-size: 20px; padding-bottom: 20px;">{{abouttext}}</p>   
             <p style="font-size: 25px; padding-bottom: 20px;">PC Parts:</p>
             
             <ul style="font-size: 20px; color: #313131; text-decoration:none; ">
@@ -51,18 +51,19 @@
             
         </div>
     </div>
-    {% endblock %}
+    
     <div class="pagebottoms">
         <div class="pagebottomtext">
             <p>L i n k s</p>
         </div>
         <div class="links">
-            <a href="https://www.instagram.com/ggrreeeeerr/" target="_blank"><img src="{% static '/images/icons/insta.png' %}" class="lnk1"></a>
-            <a href="https://www.youtube.com/channel/UCbjU4j8OkUWFNug8UFf-E1w" target="_blank"><img src="{% static '/images/icons/yt.png' %}" class="lnk1"></a>
-            <a href="https://github.com/GreerPage" target="_blank"><img src="{% static '/images/icons/github.png' %}" class="lnk1"></a>
-            <a href="https://repl.it/@greer" target="_blank"><img src="{% static '/images/icons/repl.png' %}" class="lnk1"></a>
-            <a href="https://open.spotify.com/user/mrmcmallow?si=V0Tedh3UTA2iKW4-whJF1Q" target="_blank"><img src="{% static '/images/icons/spotify.png' %}" class="lnk1"></a>
+            <a href={{medialinks.0}} target="_blank"><img src="{% static '/images/icons/insta.png' %}" class="lnk1"></a>
+            <a href={{medialinks.1}} target="_blank"><img src="{% static '/images/icons/yt.png' %}" class="lnk1"></a>
+            <a href={{medialinks.2}} target="_blank"><img src="{% static '/images/icons/github.png' %}" class="lnk1"></a>
+            <a href={{medialinks.3}} target="_blank"><img src="{% static '/images/icons/repl.png' %}" class="lnk1"></a>
+            <a href={{medialinks.4}} target="_blank"><img src="{% static '/images/icons/spotify.png' %}" class="lnk1"></a>
         </div>
     </div>
 </body>
+{% endblock %}
 </html>
