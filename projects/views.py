@@ -6,4 +6,4 @@ def index(request):
     context = {
         'medialinks': vars.medialinks,
     }
-    return render(request, 'projects/projects.html', context)
+    return render(request, 'projects.html', context)

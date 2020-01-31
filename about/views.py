@@ -8,4 +8,4 @@ def index(request):
         'medialinks': vars.medialinks,
         'abouttext': vars.abouttext,
     }
-    return render(request, 'about/about.html', context)
+    return render(request, 'about.html', context)
