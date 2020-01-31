@@ -111,23 +111,14 @@ html, body {
   background-position: fixed;
   background-repeat: no-repeat;
 }
-.abouttextbox{
-  height: auto;
-  width: 75%;
-  background-color: white;
-  position: absolute;
-  left: 50%;
-  transform: translatex(-50%);
-  z-index: 1;
-}
 .abouttext{
   width: 75%;
   text-align: left;
   font-family: 'Roboto', sans-serif;
   color: #313131;
+  transform: translateX(-50%);
+  padding-top: 100px;
   margin-left: 50%;
-  margin-top: 150px;
-  transform: translatex(-50%);
 }
 .caption{
   color: white;
@@ -154,11 +145,6 @@ html, body {
 }
 .link10{
   display: none;
-}
-.space{
-  height: 200px;
-  width: 100%;
-  background-color: thistle;
 }
 @media screen and (max-width: 768px) {
   .topbuttons {
@@ -208,7 +194,7 @@ html, body {
     overflow-x: hidden;
     z-index: 10;
     height: 180px;
-    max-height: 180px;
+    max-height:180px;
     width: 100%;
     background-color: white;
     position: absolute;
@@ -237,6 +223,20 @@ html, body {
     font-family: 'Roboto', sans-serif;
     position: relative;
     top: 70px;
+    left: 10%;
+  }
+  .link10about{
+    display: block;
+    z-index: 120;
+    text-decoration:none;
+    color: #313131; 
+    font-size: 20px; 
+    cursor: pointer;
+    padding-bottom: 30px;
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    top: -10px;
     left: 10%;
   }
 }
