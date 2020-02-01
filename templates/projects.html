@@ -1,4 +1,4 @@
-{% extends 'home.html' %}
+{% extends 'head.html' %}
 {% load static %}
 
 {% block head %} 
@@ -18,9 +18,25 @@
             <a class="link10" href="/about">About</a>
             <a class="link10" href="/projects">Projects</a>
         </div>
-        <div class="about"></div>
+        <table class="gittable">
+            <tr>
+                <th class="tabletext">Name</th>
+                <th class="tabletext">Description</th>
+                <th class="tabletext">Size (kb)</th>
+                <th class="tabletext">Last Commit</th>
+                <th class="tabletext">Stars</th>
+            </tr>
+            {% for repo in repos%}
+                <tr>
+                    <td><a class="projectlink" href="{{repo.1}}" target="_blank">{{repo.0}}</a></td>
+                    <td class="tabletext">{{repo.2}}</td>
+                    <td class="tabletext">{{repo.3}}</td>
+                    <td class="tabletext">{{repo.5}}</td>
+                    <td class="tabletext">{{repo.4}}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
-    <p class="centertext">Projects | Coming soon</p>
     <div class="pagebottoms">
         <div class="pagebottomtext">
             <p>L i n k s</p>

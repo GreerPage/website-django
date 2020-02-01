@@ -105,7 +105,8 @@ html, body {
 }
 .projectimg{
   background-color: white;
-  height: 100vh;
+  min-height:100vh;
+  height: auto;
   background-size: cover;
   background-position: center center;
   background-position: fixed;
@@ -119,6 +120,36 @@ html, body {
   transform: translateX(-50%);
   padding-top: 100px;
   margin-left: 50%;
+}
+.projectlink{
+  color: #313131;
+  text-align: left;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+.tabletext{
+  color: #313131; 
+  font-size: 20px; 
+  padding: 10px; font-family: 
+  'Roboto', sans-serif;
+  font-weight: normal;
+}
+.projectlink:hover{
+  text-decoration: underline;
+}
+.gittable{
+  width: 50%;
+  position: relative;
+  top: 100px;
+  margin-left: 50%; 
+  margin-top: 0;
+  transform: translateX(-50%);
+}
+.gittable, th, td{
+  border: 1px solid #b3b3b3;
+  border-collapse: collapse;
 }
 .caption{
   color: white;
@@ -136,6 +167,13 @@ html, body {
   text-align: center;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
+}
+.pclinks{
+  color: #313131;
+  text-decoration: none;
+}
+.pclinks:hover{
+  text-decoration: underline;
 }
 .link0{
   display: none;
