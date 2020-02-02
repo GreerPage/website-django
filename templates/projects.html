@@ -18,24 +18,31 @@
             <a class="link10" href="/about">About</a>
             <a class="link10" href="/projects">Projects</a>
         </div>
-        <table class="gittable">
-            <tr>
-                <th class="tabletext">Name</th>
-                <th class="tabletext">Description</th>
-                <th class="tabletext">Size (kb)</th>
-                <th class="tabletext">Last Commit</th>
-                <th class="tabletext">Stars</th>
-            </tr>
-            {% for repo in repos%}
+        
+        <div class="TableOuter"> 
+            <div class="projecttitle"><p>Projects</p></div>
+            <table class="gittable">
+                
                 <tr>
-                    <td><a class="projectlink" href="{{repo.1}}" target="_blank">{{repo.0}}</a></td>
-                    <td class="tabletext">{{repo.2}}</td>
-                    <td class="tabletext">{{repo.3}}</td>
-                    <td class="tabletext">{{repo.5}}</td>
-                    <td class="tabletext">{{repo.4}}</td>
+                    <th class="tabletext">Name</th>
+                    <th class="tabletext">Description</th>
+                    <th class="tabletext">Language</th>
+                    <th class="tabletext">Size (kb)</th>
+                    <th class="tabletext">Last Commit</th>
+                    <th class="tabletext">Stars</th>
                 </tr>
-            {% endfor %}
-        </table>
+                {% for repo in repos%}
+                    <tr>
+                        <td><a class="projectlink" href="{{repo.1}}" target="_blank">{{repo.0}}</a></td>
+                        <td class="tabletext">{{repo.2}}</td>
+                        <td class="tabletext">{{repo.6}}</td>
+                        <td class="tabletext">{{repo.3}}</td>
+                        <td class="tabletext">{{repo.5}}</td>
+                        <td class="tabletext">{{repo.4}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
     <div class="pagebottoms">
         <div class="pagebottomtext">

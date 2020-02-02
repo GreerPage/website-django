@@ -104,6 +104,7 @@ html, body {
   background-repeat: no-repeat;
 }
 .projectimg{
+  z-index: 0;
   background-color: white;
   min-height:100vh;
   height: auto;
@@ -131,32 +132,47 @@ html, body {
 }
 .tabletext{
   color: #313131; 
-  font-size: 20px; 
-  padding: 10px; font-family: 
-  'Roboto', sans-serif;
+  font-size: 20px;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
   font-weight: normal;
+}
+.projecttitle{
+  font-size: 35px;
+  width: 100%;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #313131;
 }
 .projectlink:hover{
   text-decoration: underline;
 }
 .gittable{
-  width: 50%;
-  position: relative;
-  top: 100px;
-  margin-left: 50%; 
-  margin-top: 0;
-  transform: translateX(-50%);
-}
-.gittable, th, td{
-  border: 1px solid #b3b3b3;
+  text-align: left;
   border-collapse: collapse;
+  width:100%;
 }
+tr {
+  border-bottom: 1px solid #b3b3b3;
+  border-top: 1px solid #b3b3b3;
+  border-collapse: collapse;
+}​
 .caption{
   color: white;
   font-family: 'Roboto', sans-serif;
   position: absolute;
   bottom: 5px;
   right: 5px;
+}
+.TableOuter{
+  z-index: 101;
+  width: 50%;
+  padding-top: 100px;
+  padding-bottom: 10px;
+  margin-left: 50%;
+  transform: translatex(-50%);
+  overflow-x: auto;
+  
 }
 .centertext{
   color: #313131;
