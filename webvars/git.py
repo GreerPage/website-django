@@ -5,7 +5,6 @@ import re
 dir_path = os.path.dirname(os.path.realpath(__file__))
 username = 'GreerPage'
 token = open(dir_path + "/gt.txt", "r")
-#g = Github('58439d586c37d36ebf1e645a30d1e8ba15229951')
 t = token.read().replace('\n', '')
 g = Github(t)
 token.close()

@@ -28,6 +28,8 @@ urlpatterns = [
     path('projects', viewsprojects.index),
     path('about/', viewsabout.index),
     path('projects/', viewsprojects.index),
+    path('projects/<str:reponame>', viewsprojects.gitpage),
+    path('projects/<str:reponame>/', viewsprojects.gitpage),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
