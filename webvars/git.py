@@ -1,7 +1,15 @@
 from github import Github
+import os
+import re
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
 username = 'GreerPage'
-g = Github("af1ba77d3384dcd29d9bc5b8b63e4f4cd72b2ff2")
+token = open(dir_path + "/gt.txt", "r")
+#g = Github('58439d586c37d36ebf1e645a30d1e8ba15229951')
+t = token.read().replace('\n', '')
+print(t)
+g = Github(t)
+token.close()
 repos = []
 repoURL = []
 repoDescription = []
