@@ -5,6 +5,7 @@ from webvars import vars
 def index(request):
     context = {
         'medialinks': vars.medialinks,
+        'linknum': '',
     }
     return render(request, 'home.html', context)
     

@@ -7,6 +7,7 @@ def index(request):
     context = {
         'medialinks': vars.medialinks,
         'repos': zip(git.repos, git.repoURL, git.repoDescription, git.size, git.stars, git.lastPushed, git.language),
+        'linknum': '1',
     }
     return render(request, 'projects.html', context)
 def gitpage(request, reponame):

@@ -152,7 +152,7 @@ html, body {
   border-collapse: collapse;
   width:100%;
 }
-tr {
+.gitrow {
   border-bottom: 1px solid #b3b3b3;
   border-top: 1px solid #b3b3b3;
   border-collapse: collapse;
@@ -168,11 +168,9 @@ tr {
   z-index: 101;
   width: 75%;
   padding-top: 100px;
-  padding-bottom: 10px;
   margin-left: 50%;
   transform: translatex(-50%);
   overflow-x: auto;
-  
 }
 .centertext{
   color: #313131;

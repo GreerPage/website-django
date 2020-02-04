@@ -24,3 +24,5 @@ for repo in g.get_user().get_repos(visibility='public'):
         stars.append(str(repo.stargazers_count))
         lastPushed.append(str(str(repo.pushed_at).split().pop(0)))
         language.append(repo.language)
+    
+
