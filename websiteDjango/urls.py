@@ -36,5 +36,5 @@ urlpatterns = [
 urlpatterns += staticfiles_urlpatterns()
 handler404 = rootviews.error_404
 handler500 = rootviews.error_500
-#handler403 = 'rootviews.error_403'
-#handler400 = 'rootviews.error_400'
+handler403 = rootviews.error_403
+handler400 = rootviews.error_400
