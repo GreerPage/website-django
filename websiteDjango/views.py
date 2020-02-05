@@ -13,13 +13,13 @@ def error_500(request):
             'errornum': '500',
         }
         return render(request,'error.html', data)
-def error_400(request):
+def error_400(request, exception):
         data = {
             'error': 'Bad Request',
             'errornum': '400',
         }
         return render(request,'error.html', data)
-def error_403(request):
+def error_403(request, exception):
         data = {
             'error': 'Forbidden',
             'errornum': '403',
