@@ -30,6 +30,11 @@ urlpatterns = [
     path('projects/', viewsprojects.index),
     path('projects/<str:reponame>', viewsprojects.gitpage),
     path('projects/<str:reponame>/', viewsprojects.gitpage),
+    
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+handler404 = rootviews.error_404
+handler500 = rootviews.error_500
+#handler403 = 'rootviews.error_403'
+#handler400 = 'rootviews.error_400'

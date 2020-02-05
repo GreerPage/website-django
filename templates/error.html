@@ -1,7 +1,7 @@
 {% extends 'errors.html' %}
 {% load static %}
 {% block head %}
-    <title>Unauthorized</title>
+    <title>{{error}}</title>
 {% endblock %}
 {% block body %}
     <div class="backimg">
@@ -17,8 +17,7 @@
             <a class="link10" href="/projects/">Projects</a>
         </div>
         </div>
-        <p class="error">401 | Unauthorized</p>  
+        <p class="error">{{errornum}} | {{error}}</p>  
     </div>    
 </body>
 {% endblock %}
-
