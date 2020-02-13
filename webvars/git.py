@@ -1,20 +1,10 @@
 from github import Github
 import os
-import re
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 username = 'GreerPage'
-token = open(dir_path + "/gt.txt", "r")
-t = token.read().replace('\n', '')
-g = Github(t)
-token.close()
-repos = []
-repoURL = []
-repoDescription = []
-stars = []
-size = []
-lastPushed = []
-language = []
+g = Github(open(dir_path + "/gt.txt", "r").read().replace('\n', ''))
+repos, repoURL, repoDescription, stars, size, lastPushed,language = [], [], [], [], [], [], []
 for repo in g.get_user().get_repos(visibility='public'):
     if repo.owner.login == username:
         repos.append(repo.name)

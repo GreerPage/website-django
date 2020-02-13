@@ -1,22 +1,11 @@
-{% extends 'errors.html' %}
+{% extends 'head.html' %}
 {% load static %}
 {% block head %}
     <title>{{error}}</title>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
 {% endblock %}
 {% block body %}
     <div class="backimg">
-        <div class="topbuttons">
-            <button class="hiddenbtn" onclick="Slide('smallmenu')"><i class="fas fa-bars fa-2x"></i></button>
-            <a class="link" href="../">Greer Page</a>
-            <a class="link" href="../about">About</a>
-            <a class="link" href="/projects">Projects</a>
-            <a class="link0" href="../">Greer Page</a>
-        </div>
-        <div class="smallmenu closed" id="smallmenu">
-            <a class="link10" href="about/">About</a>
-            <a class="link10" href="/projects/">Projects</a>
-        </div>
-        </div>
         <p class="error">{{errornum}} | {{error}}</p>  
     </div>    
 </body>
