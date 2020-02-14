@@ -27,6 +27,13 @@
     <li>All other HTML files extend "head.html"</li>
 </ul>
 
+<h2>Python</h2>
+<ul>
+    <li>Most of the python that handles variables etc can be found in /webvars</li>
+    <li>/webvars/git.py handles all of the GitHub data</li>
+    <li>/webvars/vars.py stores many of the longer variables that get imported into templates</li>
+</ul>
+
 <h2>Directories</h2>
 <ul>
     <li>about — about page</li>
