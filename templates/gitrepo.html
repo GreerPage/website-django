@@ -14,11 +14,27 @@
             {% if readme != 'ERROR: Cannot find README.md in this repository :(' %}
             <div class="readme">
                 <div class="readmetop"><p style='margin: 0; padding-top: 10px; padding-left: 10px;'>README.md</p></div>
-                <div style='padding: 10px;'>
+                <div style='padding: 7%; padding-top: 0;'>
                     {{readme | safe}}
                 </div>
             </div>
             {% endif %}
+        </div>
+    </div>
+    <div class='projectreadmore'>
+        <div class='projectreadmoretext'>
+            <p style='font-size:35px; margin-bottom: 10px;'>GitHub Repositories</p>
+            <ul>
+                {% for repo in repos%}
+                    <li><a href="{{repo.1}}" target="_blank"class="projlist">{{repo.0}}</a><p style='display: inline;'> — {{repo.2}}</p></li>
+                {% endfor %}
+            </ul>
+            <p style='font-size:35px; margin-bottom: 10px;'>Other Project Pages</p>
+            <ul>
+                {% for repo in repos%}
+                    <li><a href="/projects/{{repo.0}}" class="projlist">{{repo.0}}</a><p style='display: inline;'> — /projects/{{repo.0}}</p></li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
     <div class="pagebottoms">

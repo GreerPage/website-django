@@ -31,7 +31,7 @@ def getREADME(reponame):
         return readme
     except:
         return 'ERROR: Cannot find README.md in this repository :('  
-print(getREADME('old-website'))
+
 def getURL(reponame):
     user = g.get_user()
     repo = user.get_repo(reponame)

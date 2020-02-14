@@ -46,9 +46,15 @@
     <div class='projectreadmore'>
         <div class='projectreadmoretext'>
             <p style='font-size:35px; margin-bottom: 10px;'>GitHub Repositories</p>
-            <ul>
-                {% for repo in repos1%}
+            <ul style="padding-bottom: 50px;">
+                {% for repo in repos%}
                     <li><a href="{{repo.1}}" target="_blank"class="projlist">{{repo.0}}</a><p style='display: inline;'> — {{repo.2}}</p></li>
+                {% endfor %}
+            </ul>
+            <p style='font-size:35px; margin-bottom: 10px;'>Project Pages</p>
+            <ul>
+                {% for repo in repos%}
+                    <li><a href="/projects/{{repo.0}}" class="projlist">{{repo.0}}</a><p style='display: inline;'> — /projects/{{repo.0}}</p></li>
                 {% endfor %}
             </ul>
         </div>
