@@ -4,6 +4,7 @@
 
 <h2>Starting Off</h2>
 <ul>
+    <li>Cd to root directory and run "pip3 install -r requirements.txt"</li>
     <li>In "websiteDjango/settings.py" change Debug=False to Debug=True</li>
     <li>Make the file "/webvars/gt.txt" in it put a <a href="https://github.com/settings/tokens">GitHub Auth Token</a></li>
     <li>You may also want to change the username value in /webvars/git.py to your GitHub username</li>
