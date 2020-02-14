@@ -12,10 +12,10 @@
                 <p>ERROR: Cannot find README.md in this repository :(</p>
             {% endif %}
             {% if readme != 'ERROR: Cannot find README.md in this repository :(' %}
-            <p>README.md</p>
             <div class="readme">
+                <div class="readmetop"><p style='margin: 0; padding-top: 10px; padding-left: 10px;'>README.md</p></div>
                 <div style='padding: 10px;'>
-                    {{readme |safe}}
+                    {{readme | safe}}
                 </div>
             </div>
             {% endif %}

@@ -177,7 +177,22 @@ html, body {
 .readme{
   border: 1px solid #b3b3b3;
   border-radius: 10px;
-  width: fit-content;
+  width: 100%;
+  overflow: hidden;
+}
+.readme a{
+  color: #0366d6;
+  text-decoration: none;
+}
+.readme a:hover{
+  text-decoration: underline;
+}
+.readmetop{
+  font-weight: bold;
+  width:100%;
+  height: 40px;
+  background-color: #f5f4f4;
+  border-bottom: 1px solid #b3b3b3;
 }
 .gittable{
   text-align: left;
@@ -255,7 +270,7 @@ html, body {
   display: none;
 }
 .gittextbox{
-  width: 75%;
+  width: 50%;
   text-align: left;
   font-family: 'Roboto', sans-serif;
   color: #313131;
@@ -263,6 +278,11 @@ html, body {
   padding-top: 100px;
   margin-left: 50%;
   padding-bottom: 20px;
+}
+@media screen and (max-width: 1300px) {
+  .gittextbox{
+    width: 75%;
+  }
 }
 @media screen and (max-width: 768px) {
   .topbuttons {

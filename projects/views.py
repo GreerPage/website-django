@@ -6,13 +6,13 @@ from django.http import HttpResponse, Http404
 def index(request): 
     context = {
         'medialinks': vars.medialinks,
-        'repos': zip(git.repos, git.repoURL, git.repoDescription, git.size, git.stars, git.lastPushed, git.language),
-        'repos1': zip(git.repos, git.repoURL, git.repoDescription, git.size, git.stars, git.lastPushed, git.language),
+        'repos': git.getInfoForTable,
+        'repos1': git.getInfoForTable,
         'linknum': '1',
     }
     return render(request, 'projects.html', context)
 def gitpage(request, reponame):
-    if reponame not in git.repos:
+    if reponame not in git.getInfoForTable('repos'):
         raise Http404()
     context = {
         'reponame': reponame,
