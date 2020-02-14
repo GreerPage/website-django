@@ -1,5 +1,6 @@
 from github import Github
 import os
+import base64
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 username = 'GreerPage'
@@ -14,5 +15,20 @@ for repo in g.get_user().get_repos(visibility='public'):
         stars.append(str(repo.stargazers_count))
         lastPushed.append(str(str(repo.pushed_at).split().pop(0)))
         language.append(repo.language)
-    
+
+def getREADME(reponame):
+    try:
+        user = g.get_user()
+        repo = user.get_repo(reponame)
+        readme = repo.get_contents('README.md')
+        readme = (base64.b64decode(readme.content).decode('Utf-8'))
+        return readme
+    except:
+        return 'ERROR: Cannot find README.md in this repository :('  
+
+def getURL(reponame):
+    user = g.get_user()
+    repo = user.get_repo(reponame)
+    url = repo.html_url
+    return url
 
