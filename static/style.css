@@ -277,7 +277,7 @@ html, body {
   transform: translateX(-50%);
   padding-top: 100px;
   margin-left: 50%;
-  padding-bottom: 20px;
+  margin-bottom: 15%;
 }
 @media screen and (max-width: 1300px) {
   .gittextbox{
