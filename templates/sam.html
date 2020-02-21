@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu&display=swap" rel="stylesheet"> 
+    <title>sam...</title>
+    <style>
+        #sam{
+            height: 75%;
+            width: 75%;
+            max-height: 800px;
+            max-width: 600px;
+            transform: rotate(90deg);
+            padding-top: 200px;
+            margin-left: 100px;
+        }
+        #text{
+            font-size: 20px;
+            margin-left: 70px;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id='sam' src="{% static '/images/sam.jpg' %}" alt="">
+        <p id='text'>You're not supposed to be here. This makes sam sad :(</p>
+    </div>
+</body>
+</html>

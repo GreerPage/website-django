@@ -20,7 +20,7 @@ $(document).ready(function() {
     function CheckWindowWidth(){
         if($(window).width() > 768){
             document.getElementById('smallmenu').classList.add('closed1');
-            console.log('e');
         }
     }
+    
 });

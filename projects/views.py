@@ -23,3 +23,6 @@ def gitpage(request, reponame):
         'medialinks': vars.medialinks,
     }
     return render(request, 'gitrepo.html', context)
+
+def sam(request):
+    return render(request, 'sam.html')
