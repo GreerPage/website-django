@@ -1,6 +1,7 @@
 from github import Github
 import os
 import base64
+from markdown import markdown
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 username = 'GreerPage'
@@ -28,7 +29,7 @@ def getREADME(reponame):
         repo = user.get_repo(reponame)
         readme = repo.get_contents('README.md')
         readme = (base64.b64decode(readme.content).decode('Utf-8'))
-        return readme
+        return markdown(readme)
     except:
         return 'ERROR: Cannot find README.md in this repository :('  
 
