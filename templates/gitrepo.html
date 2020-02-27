@@ -32,7 +32,9 @@
             <p style='font-size:35px; margin-bottom: 10px;'>Other Project Pages</p>
             <ul>
                 {% for repo in repos%}
-                    <li><a href="/projects/{{repo.0}}" class="projlist">{{repo.0}}</a><p style='display: inline;'> — /projects/{{repo.0}}</p></li>
+                    {% if repo.0 != reponame %}
+                        <li><a href="/projects/{{repo.0}}" class="projlist">{{repo.0}}</a><p style='display: inline;'> — /projects/{{repo.0}}</p></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>
