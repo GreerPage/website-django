@@ -8,5 +8,7 @@ def index(request):
         'medialinks': vars.medialinks,
         'abouttext': vars.abouttext,
         'linknum': '1',
+        'bottom': True,
+        'sociallinks': zip(vars.medialinks, vars.imgnames),
     }
     return render(request, 'about.html', context)

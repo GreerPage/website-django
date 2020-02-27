@@ -5,10 +5,11 @@ from django.http import HttpResponse, Http404
 
 def index(request): 
     context = {
-        'medialinks': vars.medialinks,
         'repos': git.getInfoForTable,
         'repos1': git.getInfoForTable,
         'linknum': '1',
+        'bottom': True,
+        'sociallinks': zip(vars.medialinks, vars.imgnames),
     }
     return render(request, 'projects.html', context)
 def gitpage(request, reponame):
@@ -20,7 +21,8 @@ def gitpage(request, reponame):
         'linknum': '1',
         'readme': git.getREADME(reponame),
         'repos': git.getInfoForTable,
-        'links': zip(vars.medialinks, vars.imgnames)
+        'sociallinks': zip(vars.medialinks, vars.imgnames),
+        'bottom': True,
     }
     return render(request, 'gitrepo.html', context)
 

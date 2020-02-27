@@ -8,11 +8,10 @@
 {% block body %}
     <div class="homeimg">
         <div class="buttons">
-            <a href={{medialinks.0}} target="_blank"><img src="{% static '/images/icons/insta.png' %}" class="lnk"></a>
-            <a href={{medialinks.1}} target="_blank"><img src="{% static '/images/icons/yt.png' %}" class="lnk"></a>
-            <a href={{medialinks.2}} target="_blank"><img src="{% static '/images/icons/github.png' %}" class="lnk"></a>
-            <a href={{medialinks.3}} target="_blank"><img src="{% static '/images/icons/repl.png' %}" class="lnk"></a>
-            <a href={{medialinks.4}} target="_blank"><img src="{% static '/images/icons/spotify.png' %}" class="lnk"></a>
+            {% for link1, img1 in links %}
+                    {% static "" as baseUrl %}
+                    <a href={{link1}} target="_blank"><img src="{{ baseUrl }}images/icons/{{img1}}.png" class="lnk"></a>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
