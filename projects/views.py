@@ -20,7 +20,7 @@ def gitpage(request, reponame):
         'linknum': '1',
         'readme': git.getREADME(reponame),
         'repos': git.getInfoForTable,
-        'medialinks': vars.medialinks,
+        'links': vars.linkandimg
     }
     return render(request, 'gitrepo.html', context)
 

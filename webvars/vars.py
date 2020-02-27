@@ -17,5 +17,16 @@ medialinks = [
     "https://repl.it/@greer",
     "https://open.spotify.com/user/mrmcmallow?si=V0Tedh3UTA2iKW4-whJF1Q",
 ]
+
+imgnames = [
+    'insta',
+    'yt',
+    'github', 
+    'repl',
+    'spotify',
+]
+
+linkandimg = zip(medialinks, imgnames)
+
 abouttext = "<p style='font-size: 20px; padding-bottom: 20px;'>This website is hosted on a Raspberry Pi 4 using apache2. I am using cloudflare's free ssl service for encryption. I originally wrote the website in html, css, and javascript, until I decided to that it would be a good idea to learn something new. So, I rewrote the website in a python web framework called Django. The code can be found on my <a class='projlist' style='color: #313131;'href='https://github.com/GreerPage/website-django'>Github</a>.</p>"
 
