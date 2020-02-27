@@ -44,8 +44,9 @@
             <p>L i n k s</p>
         </div>
         <div class="links">
-            {% for link in links %}
-                <a href={{link.0}} target="_blank"><img src="{% static '/images/icons/{{link.1}}' %}" class="lnk1"></a>
+            {% for link1, img1 in links %}
+                {% static "" as baseUrl %}
+                <a href={{link1}} target="_blank"><img src="{{ baseUrl }}images/icons/{{img1}}.png" class="lnk1"></a>
             {% endfor %}
         </div>
     </div>
