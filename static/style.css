@@ -186,13 +186,14 @@ html, body {
   text-decoration: none;
 }
 .readme li{
-  padding-bottom: 7px;
+  padding-bottom: 3px;
 }
 .readme code{
   color: #313131;
   font-family: 'Roboto', sans-serif;
   background-color: #f0f0f0;
-  padding: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
   border-radius: 5px;
 }
 .readme a:hover{
