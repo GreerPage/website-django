@@ -12,9 +12,6 @@ Repository for my [website](https://greerpage.com)
 - If you recieved an error this might be due to some sort of error with /webvars/gt.txt
 - After these changes the server should start up. Although, it will display your github repository info on the projects page
 
-```python
-print('e')
-```
 ## Projects Page
 - In order to pull the information for the projects page I am using the python library [PyGitHub](https://github.com/PyGithub/PyGithub)
 - /webvars/git.py collects all of the necessary information from GitHub
