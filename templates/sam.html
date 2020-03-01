@@ -6,27 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu&display=swap" rel="stylesheet"> 
     <title>sam...</title>
+    <link rel="icon" href="{% static '/images/sam.png' %}" type="image/x-icon"/>
     <style>
-        #sam{
+        .sam{
             height: 75%;
             width: 75%;
-            max-height: 800px;
-            max-width: 600px;
-            transform: rotate(90deg);
-            padding-top: 200px;
-            margin-left: 100px;
+            max-height: 400px;
+            max-width: 300px;
+            object-fit: cover;
+            position: relative;
+            top: 100px;
+            left: 15%;
+            padding-bottom: 110px;
         }
-        #text{
+        .text{
             font-size: 20px;
-            margin-left: 70px;
             font-family: 'Roboto', sans-serif;
+            position: absolute;
+            left: 15%;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            padding: 0;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <div>
-        <img id='sam' src="{% static '/images/sam.jpg' %}" alt="">
-        <p id='text'>You're not supposed to be here. This makes sam sad :(</p>
+        <img class='sam' src="{% static '/images/sam.jpg' %}" alt="">
+        <p class='text'>You're not supposed to be here. This makes sam sad :(</p>
     </div>
 </body>
 </html>
