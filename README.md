@@ -2,6 +2,8 @@
 
 Repository for my [website](https://greerpage.com)
 
+![image](https://greerpage.com/static/images/img1.jpg)
+
 ## Starting Off
 
 - Cd to root directory and run `pip3 install -r requirements.txt`
