@@ -181,6 +181,9 @@ html, body {
   width: 100%;
   overflow: auto;
 }
+.readme img{
+  max-width: 100%;
+}
 .readme a{
   color: #0366d6;
   text-decoration: none;
