@@ -25,7 +25,7 @@ Repository for my [website](https://greerpage.com)
 
 ## Python
 
-- Most of the python that handles variables etc can be found in /webvars
+- Most of the python that handles backend things can be found in /webvars
 - /webvars/git.py handles all of the GitHub data
 - /webvars/vars.py stores many of the longer variables that get imported into templates
 
