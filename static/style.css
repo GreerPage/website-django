@@ -248,8 +248,16 @@ p {
   font-size: 15px;
   color: white;
 }
+#copyright {
+  width: fit-content;
+  margin-right: 0;
+  position: absolute; 
+  left: 15%;
+}
 .bottom-info div {
-  width: 15%;
+  padding-top: 55px; 
+  position: absolute; 
+  right: 15%
 }
 .readme img{
   max-width: 100%;
@@ -474,5 +482,13 @@ p {
     position: relative;
     top: -10px;
     left: 10%;
+  }
+}
+@media screen and (max-width: 450px) {
+  #copyright {
+    left: 5%;
+  }
+  .bottom-info div {
+    right: 5px;
   }
 }
