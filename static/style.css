@@ -235,6 +235,22 @@ html, body {
   width: 100%;
   overflow: auto;
 }
+p {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+.bottom-info {
+  height: 150px;
+  background-color: #202020
+}
+.bottom-info p {
+  margin: 0;
+  font-size: 15px;
+  color: white;
+}
+.bottom-info div {
+  width: 15%;
+}
 .readme img{
   max-width: 100%;
 }
