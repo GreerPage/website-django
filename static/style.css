@@ -236,7 +236,6 @@ html, body {
   overflow: auto;
 }
 p {
-  font-size: 20px;
   font-family: 'Roboto', sans-serif;
 }
 .bottom-info {
@@ -276,7 +275,7 @@ p {
   padding-left: 3px;
   padding-right: 3px;
   border-radius: 5px;
-
+  font-size: 17px;
 }
 .readme a:hover{
   text-decoration: underline;
