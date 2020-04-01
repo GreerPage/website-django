@@ -11,19 +11,15 @@ token = open(dir_path + "/gt.txt", "r").read().replace('\n', '')
 g = Github(token)
 
 def getInfoForTable(list1=''):
-    repos, repoURL, repoDescription, stars, size, lastPushed,language, colors = [], [], [], [], [], [], [], []
+    repos, repoURL, repoDescription, language, colors = [], [], [], [], []
     for repo in g.get_user().get_repos(visibility='public'):
         if repo.owner.login == username:
             repos.append(repo.name)
             repoURL.append(repo.html_url)
             repoDescription.append(repo.description)
-            #size.append(str(repo.size))
-            #stars.append(str(repo.stargazers_count))
-            #lastPushed.append(str(str(repo.pushed_at).split().pop(0)))
             language.append(repo.language)
             colors.append(repocolors[repo.language])
     if list1 == '':
-        #return zip(repos, repoURL, repoDescription, size, stars, lastPushed,language)
         return zip(repos, repoURL, repoDescription, language, colors)
     else:
         return vars()[list1]

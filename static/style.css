@@ -247,11 +247,12 @@ html, body {
 }
 .readme code{
   color: #313131;
-  font-family: 'Roboto', sans-serif;
+  font-family: hack;
   background-color: #f0f0f0;
   padding-left: 3px;
   padding-right: 3px;
   border-radius: 5px;
+
 }
 .readme a:hover{
   text-decoration: underline;
