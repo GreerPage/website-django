@@ -8,8 +8,19 @@ function VisibilityIdToggle(idname){
         document.getElementById(idname).style.visibility = "hidden"; 
         return 0;
     }
+    
 }
-
+function DisplayIdToggle(idname) {
+    var x = document.getElementById(idname);
+    if(window.getComputedStyle(x).display === "none"){
+        document.getElementById(idname).style.display = "block"; 
+        return 0;
+    }
+    if(window.getComputedStyle(x).display === "block"){
+        document.getElementById(idname).style.display = "none"; 
+        return 0;
+    }
+}
 function Slide(idname){
     document.getElementById(idname).classList.toggle('closed');
     return 0;

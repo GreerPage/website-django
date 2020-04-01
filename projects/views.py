@@ -6,7 +6,7 @@ from django.http import HttpResponse, Http404
 def index(request): 
     context = {
         'repos': git.getInfoForTable,
-        'repos1': git.getInfoForTable,
+        'colors': vars.repocolors,
         'linknum': '1',
         'bottom': True,
         'sociallinks': zip(vars.medialinks, vars.imgnames),

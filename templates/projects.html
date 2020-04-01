@@ -7,30 +7,25 @@
 
 {% block body %} 
     <div class="projectimg">
-        <div class="TableOuter"> 
+        <div class="project-main">
             <div class="projecttitle"><p>Projects</p></div>
-            <table class="gittable">
-                <tr class="gitrow">
-                    <th class="tabletext">Name</th>
-                    <th class="tabletext">Description</th>
-                    <th class="tabletext">Language</th>
-                    <th class="tabletext">Size (kb)</th>
-                    <th class="tabletext">Last Commit</th>
-                    <th class="tabletext">Stars</th>
-                </tr>
+            <hr>
+            <div class="repos-container">
                 {% for repo in repos%}
-                    <tr class="gitrow">
-                        <td><a class="projectlink" href="/projects/{{repo.0}}">{{repo.0}}</a></td>
-                        <td class="tabletext">{{repo.2}}</td>
-                        <td class="tabletext">{{repo.6}}</td>
-                        <td class="tabletext">{{repo.3}}</td>
-                        <td class="tabletext">{{repo.5}}</td>
-                        <td class="tabletext">{{repo.4}}</td>
-                    </tr class="gitrow">
+                    <div class='repo-container'>
+                        <a class="git-link" href="{{repo.1}}" target="_blank">{{repo.0}}</a>
+                        <button class="lang-button" style="background-color: {{repo.4}};" onclick="DisplayIdToggle('{{repo.0}}-hidden')"></button>
+                        <div id="{{repo.0}}-hidden" style="display: none;">
+                            <span class="git-dot" style="background-color: {{repo.4}};"></span>
+                            <span>{{repo.3}}</span>
+                        </div>
+                        <p style="margin-top: 10px;">{{repo.2}}</p>
+                        <a class="git-link"href="/projects/{{repo.0}}">README.md</a>
+                    </div>
                 {% endfor %}
-            </table>
+            </div>
         </div>
-        <div style="height: 50px; width: 100%;"></div>
+        <div style="height: 20vh; width: 100%;"></div>
     </div>
     <div class='projectreadmore'>
         <div class='projectreadmoretext'>
