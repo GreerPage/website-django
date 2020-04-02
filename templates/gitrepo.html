@@ -15,9 +15,11 @@
                                 <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-top-left-radius: 5px; border-bottom-left-radius: 5px;"></span>
                             {% elif key == last %}
                                 <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"></span>
+                            {% elif one == True %}
+                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-radius: 5px;"></span>  
                             {% else %}
-                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-radius: 5px;"></span>   
-                            {% endif %}             
+                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}};"></span>      
+                            {% endif %}                  
                     {% endfor %}
                 </div>
             </div>
