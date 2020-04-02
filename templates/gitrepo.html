@@ -8,6 +8,28 @@
         <div class="gittextbox">
             <a href="{{link}}" target="_blank" class="gitpagelink">{{reponame}}</a>
             <div style="height: 20px; width: 100%;"></div>
+            <div class="repo-page-info">
+                <div id="language-bars-container"class='language-bars-container'>
+                    {% for key, values in langs.items %}
+                            {% if key == first %}
+                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-top-left-radius: 5px; border-bottom-left-radius: 5px;"></span>
+                            {% elif key == last %}
+                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"></span>
+                            {% elif one == True %}
+                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-radius: 5px;"></span>  
+                            {% else %}
+                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}};"></span>      
+                            {% endif %}                  
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="git-langs-list-container"class="git-langs-list-container">
+                <ul class="git-langs-list">
+                    {% for key, values in langs.items %}
+                        <li><span class="git-dot" style="background-color: {{values.1}};"></span><span>{{key}} <span id="Percent">{{values.0}}%</span></span></li>
+                    {% endfor %}
+                </ul>
+            </div>
             {% if readme == 'ERROR: Cannot find README.md in this repository :(' %}
                 <p>ERROR: Cannot find README.md in this repository :(</p>
             {% endif %}

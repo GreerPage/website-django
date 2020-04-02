@@ -22,6 +22,48 @@ html, body {
   top: 30%;
   left: 10px;
 }
+.laguage-bars {
+  padding: 0; 
+  margin-right: 1px;
+  height: 20px; 
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: -5px;
+}
+.language-bars-container {
+  height: 20px;
+  position: relative;
+  left: 5px;
+  top: 15px;
+  padding: 0;
+  border-radius: 3px;
+}
+.repo-page-info {
+  height: 30px;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 50px;
+}
+.git-langs-list {
+  list-style: none;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  grid-column-gap: 20px;
+}
+.git-langs-list li {
+  display: inline; 
+  margin-left: 15px;
+}
+.git-langs-list-container {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#git-langs-list-container {
+  display: none;
+}
 .lnk{
   height: 30px;
   width: 30px;
@@ -378,6 +420,9 @@ p {
   margin-left: 50%;
   margin-bottom: 15%;
 }
+#Percent {
+  display: inline-block;
+}
 @media screen and (max-width: 1300px) {
   .gittextbox{
     width: 75%;
@@ -387,6 +432,9 @@ p {
   }
 }
 @media screen and (max-width: 768px) {
+  #Percent {
+    display: none;
+  }
   .topbuttons {
     z-index: 11;
     background-color: white;
@@ -483,11 +531,15 @@ p {
     left: 10%;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
   #copyright {
     left: 5%;
   }
   .bottom-info div {
     right: 5px;
   }
+  .git-langs-list li {
+    font-size: 15px;
+  }
+  
 }

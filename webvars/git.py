@@ -32,8 +32,7 @@ def getREADME(reponame):
         readme = (base64.b64decode(readme.content).decode('Utf-8'))
         return markdown(readme)
     except:
-        #return 'ERROR: Cannot find README.md in this repository :('
-        return ''  
+        return 'ERROR: Cannot find README.md in this repository :('
 
 def getURL(reponame):
     user = g.get_user()
@@ -41,21 +40,36 @@ def getURL(reponame):
     url = repo.html_url
     return url
 
-def getLanguages():
+def getLanguages(rep=''):
+    if rep != '':
+        total = 0
+        user = g.get_user()
+        repo = user.get_repo(rep)
+        print(repo.languages_url)
+        langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
+        for key in langs:
+            total += langs[key]
+        for key in langs:
+            per = round(langs[key]/total*100, 2)
+            langs[key] = [per, repocolors[key]]
+        return langs
     languages, total = {}, 0
     for repo in g.get_user().get_repos(visibility='public'):
         if repo.owner.login == username:
             langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
             languages[repo.name] = {}
             for key in langs:
-                languages[repo.name][key] = langs[key] 
+                languages[repo.name][key] = [langs[key]] 
     
     for key in languages:
         for k in languages[key]:
-            e = languages[key][k]
+            e = languages[key][k][0]
             total += e
         for i in languages[key]:
-            e = languages[key][i]
-            languages[key][i] = e/total*100
+            e = languages[key][i][0]
+            languages[key][i][0] = round(e/total*100, 2)
+            languages[key][i].append(repocolors[i])
         
     return languages
+
+

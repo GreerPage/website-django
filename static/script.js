@@ -28,10 +28,14 @@ function Slide(idname){
 
 //jQuery
 $(document).ready(function() {
-    function CheckWindowWidth(){
-        if($(window).width() > 768){
-            document.getElementById('smallmenu').classList.add('closed1');
+    $('#language-bars-container').click(function(){
+        DisplayIdToggle('git-langs-list-container');
+        padding = $('.repo-page-info').css('margin-bottom');
+        if(padding === '50px') {
+            $('.repo-page-info').css('margin-bottom', '20px');
         }
-    }
-    
+        else {
+            $('.repo-page-info').css('margin-bottom', '50px');
+        }
+    });    
 });
