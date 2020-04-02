@@ -45,7 +45,6 @@ def getLanguages(rep=''):
         total = 0
         user = g.get_user()
         repo = user.get_repo(rep)
-        print(repo.languages_url)
         langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
         for key in langs:
             total += langs[key]

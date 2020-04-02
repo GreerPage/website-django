@@ -21,7 +21,7 @@ def gitpage(request, reponame):
         if x == 0: first = key
         if x == len(langs)-1: last = key
         x+=1
-    if len(langs) == 1: one=True
+    if len(langs) == 1: one, first, last =True, '', ''
     context = {
         'reponame': reponame,
         'link': git.getURL(reponame),
