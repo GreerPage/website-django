@@ -16,7 +16,7 @@ from webvars import git
 import threading
 
 def update():
-    threading.Timer(60, update).start
+    threading.Timer(600, update).start
     git.updateAll()
 
 update()
