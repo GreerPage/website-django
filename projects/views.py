@@ -3,10 +3,9 @@ import threading
 from webvars import vars, git
 from django.http import HttpResponse, Http404
 
-def index(request): 
+def index(request):    
     context = {
-        'repos': git.getInfoForTable,
-        'colors': vars.repocolors,
+        'repos': git.getGitInfo('getInfoForTable', "")[0],
         'linknum': '1',
         'bottom': True,
         'sociallinks': zip(vars.medialinks, vars.imgnames),
@@ -15,7 +14,7 @@ def index(request):
 def gitpage(request, reponame):
     if reponame not in git.getInfoForTable():
         raise Http404()
-    langs = git.getLanguages(reponame)
+    langs = git.getGitInfo('getLanguages', reponame)[0]
     x, one = 0, False
     for key in langs:
         if x == 0: first = key
@@ -25,10 +24,10 @@ def gitpage(request, reponame):
     
     context = {
         'reponame': reponame,
-        'link': git.getURL(reponame),
+        'link': git.getGitInfo('getURL', reponame)[0],
         'linknum': '1',
-        'readme': git.getREADME(reponame),
-        'repos': git.getInfoForTable,
+        'readme': git.getGitInfo('getREADME', reponame)[0],
+        'repos': git.getGitInfo('getInfoForTable', "")[0],
         'sociallinks': zip(vars.medialinks, vars.imgnames),
         'bottom': True,
         'langs' : langs,

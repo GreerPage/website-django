@@ -3,6 +3,9 @@ import os
 import base64
 from markdown import markdown
 import requests
+import json
+from websiteDjango import settings
+import datetime
 try: from .vars import repocolors
 except ImportError: from vars import repocolors
 
@@ -12,7 +15,6 @@ token = open(dir_path + "/gt.txt", "r").read().replace('\n', '')
 g = Github(token)
 
 def getInfoForTable(reponame = ''):
-    #repos, repoURL, repoDescription, language, colors = [], [], [], [], []
     repos = {}
     for repo in g.get_user().get_repos(visibility='public'):
         if repo.owner.login == username:
@@ -22,9 +24,10 @@ def getInfoForTable(reponame = ''):
             repos[repo.name].append(repo.language)
             repos[repo.name].append(repocolors[repo.language])
     if reponame == '':
-        return repos
+        return repos 
     else:
         return repos[reponame]
+
 def getREADME(reponame):
     try:
         user = g.get_user()
@@ -41,33 +44,63 @@ def getURL(reponame):
     url = repo.html_url
     return url
 
-def getLanguages(rep=''):
-    if rep != '':
-        total = 0
-        user = g.get_user()
-        repo = user.get_repo(rep)
-        langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
-        for key in langs:
-            total += langs[key]
-        for key in langs:
-            per = round(langs[key]/total*100, 2)
-            langs[key] = [per, repocolors[key]]
-        return langs
-    languages, total = {}, 0
+def getLanguages(rep):
+    total = 0
+    user = g.get_user()
+    repo = user.get_repo(rep)
+    langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
+    for key in langs:
+        total += langs[key]
+    for key in langs:
+        per = round(langs[key]/total*100, 2)
+        langs[key] = [per, repocolors[key]]
+    return langs
+
+def getGitInfo(name, arg = ''):
+    if 'json' not in os.listdir(settings.BASE_DIR):
+        os.mkdir(os.path.join(settings.BASE_DIR, 'json'))
+    if 'git.json' not in os.listdir(os.path.join(settings.BASE_DIR, 'json')):
+        open(os.path.join(settings.BASE_DIR, 'json', 'git.json'), 'w+')
+    file, e, for_json = os.path.join(settings.BASE_DIR, 'json', 'git.json'), datetime.datetime.now(), {}
+    content = open(file, 'r').read()
+    current_time = e.strftime('%I %M')
+    current_time = current_time.split()
+    for i in range(len(current_time)): current_time[i] = int(current_time[i])
+    if content == '':  
+        func = globals()[name](arg)
+        for_json['{}({})'.format(name, arg)] = [func, {'time': current_time}]
+        with open(file, 'w') as json_file:
+            json.dump(for_json, json_file)
+        return for_json['{}({})'.format(name, arg)]
+    else:
+        with open(file) as f:
+            content = json.load(f)
+        if '{}({})'.format(name, arg) not in content:
+            func = globals()[name](arg)
+            content['{}({})'.format(name, arg)] = [func, {'time': current_time}]
+            with open(file, 'w') as json_file:
+                json.dump(content, json_file)
+            return content['{}({})'.format(name, arg)]
+        else:
+            info = content['{}({})'.format(name, arg)]
+            if current_time[0] - info[1]['time'][0] > 0 or current_time[1] - info[1]['time'][1] >= 10:
+                func = globals()[name](arg)
+                content['{}({})'.format(name, arg)] = [func, {'time': current_time}]
+                with open(file, 'w') as json_file:
+                    json.dump(content, json_file)
+                return content['{}({})'.format(name, arg)]
+
+            else: return info
+
+def updateAll():
+    repos = []
     for repo in g.get_user().get_repos(visibility='public'):
         if repo.owner.login == username:
-            langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
-            languages[repo.name] = {}
-            for key in langs:
-                languages[repo.name][key] = [langs[key]] 
+            repos.append(repo.name)
+    getGitInfo('getInfoForTable', '')
+    for repo in repos:     
+        getGitInfo('getREADME', repo)
+        getGitInfo('getURL', repo)
+        getGitInfo('getLanguages', repo)
     
-    for key in languages:
-        for k in languages[key]:
-            e = languages[key][k][0]
-            total += e
-        for i in languages[key]:
-            e = languages[key][i][0]
-            languages[key][i][0] = round(e/total*100, 2)
-            languages[key][i].append(repocolors[i])
-        
-    return languages
+    return 'success'

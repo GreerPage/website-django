@@ -130,3 +130,5 @@ dmypy.json
 .pyre/
 #gitauth file
 webvars/gt.txt
+#json
+json/
