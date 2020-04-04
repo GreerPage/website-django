@@ -63,7 +63,7 @@ def getGitInfo(name, arg = ''):
         open(os.path.join(settings.BASE_DIR, 'json', 'git.json'), 'w+')
     file, e, for_json = os.path.join(settings.BASE_DIR, 'json', 'git.json'), datetime.datetime.now(), {}
     content = open(file, 'r').read()
-    current_time = e.strftime('%I %M')
+    current_time = e.strftime('%H %M')
     current_time = current_time.split()
     for i in range(len(current_time)): current_time[i] = int(current_time[i])
     if content == '':  

@@ -132,3 +132,5 @@ dmypy.json
 webvars/gt.txt
 #json
 json/
+#goddamn pycache
+!**/__pycache__/
