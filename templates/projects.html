@@ -11,16 +11,16 @@
             <div class="projecttitle"><p>Projects</p></div>
             <hr>
             <div class="repos-container">
-                {% for repo in repos%}
+                {% for key, values in repos.items%}
                     <div class='repo-container'>
-                        <a class="git-link" href="{{repo.1}}" target="_blank">{{repo.0}}</a>
-                        <button class="lang-button" style="background-color: {{repo.4}};" onclick="DisplayIdToggle('{{repo.0}}-hidden')"></button>
-                        <div id="{{repo.0}}-hidden" style="display: none;">
-                            <span class="git-dot" style="background-color: {{repo.4}};"></span>
-                            <span>{{repo.3}}</span>
+                        <a class="git-link" href="{{values.0}}" target="_blank">{{key}}</a>
+                        <button class="lang-button" style="background-color: {{values.3}};" onclick="DisplayIdToggle('{{key}}-hidden')"></button>
+                        <div id="{{key}}-hidden" style="display: none;">
+                            <span class="git-dot" style="background-color: {{values.3}};"></span>
+                            <span>{{values.2}}</span>
                         </div>
-                        <p style="margin-top: 10px;">{{repo.2}}</p>
-                        <a class="git-link"href="/projects/{{repo.0}}">README.md</a>
+                        <p style="margin-top: 10px;">{{values.1}}</p>
+                        <a class="git-link"href="/projects/{{key}}">see more</a>
                     </div>
                 {% endfor %}
             </div>
@@ -31,14 +31,14 @@
         <div class='projectreadmoretext'>
             <p style='font-size:35px; margin-bottom: 10px;'>GitHub Repositories</p>
             <ul style="padding-bottom: 50px;">
-                {% for repo in repos%}
-                    <li><a href="{{repo.1}}" target="_blank"class="projlist">{{repo.0}}</a><p style='display: inline;'> — {{repo.2}}</p></li>
+                {% for key, values in repos.items%}
+                    <li><a href="{{values.0}}" target="_blank"class="projlist">{{key}}</a><p style='display: inline;'> — {{values.1}}</p></li>
                 {% endfor %}
             </ul>
             <p style='font-size:35px; margin-bottom: 10px;'>Project Pages</p>
             <ul>
-                {% for repo in repos%}
-                    <li><a href="/projects/{{repo.0}}" class="projlist">{{repo.0}}</a><p style='display: inline;'> — /projects/{{repo.0}}</p></li>
+                {% for key, values in repos.items%}
+                    <li><a href="/projects/{{key}}" class="projlist">{{key}}</a><p style='display: inline;'> — /projects/{{key}}</p></li>
                 {% endfor %}
             </ul>
         </div>

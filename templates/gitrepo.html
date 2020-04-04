@@ -47,15 +47,15 @@
         <div class='projectreadmoretext'>
             <p style='font-size:35px; margin-bottom: 10px;'>GitHub Repositories</p>
             <ul>
-                {% for repo in repos%}
-                    <li><a href="{{repo.1}}" target="_blank"class="projlist">{{repo.0}}</a><p style='display: inline;'> — {{repo.2}}</p></li>
+                {% for key, values in repos.items%}
+                    <li><a href="{{values.0}}" target="_blank"class="projlist">{{key}}</a><p style='display: inline;'> — {{values.1}}</p></li>
                 {% endfor %}
             </ul>
             <p style='font-size:35px; margin-bottom: 10px;'>Other Project Pages</p>
             <ul>
-                {% for repo in repos%}
+                {% for key, values in repos.items%}
                     {% if repo.0 != reponame %}
-                        <li><a href="/projects/{{repo.0}}" class="projlist">{{repo.0}}</a><p style='display: inline;'> — /projects/{{repo.0}}</p></li>
+                        <li><a href="/projects/{{key}}" class="projlist">{{key}}</a><p style='display: inline;'> — /projects/{{key}}</p></li>
                     {% endif %}
                 {% endfor %}
             </ul>

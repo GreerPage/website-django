@@ -182,6 +182,12 @@ html, body {
   margin-top: 10px;
   border-radius: 3px;
 }
+.lang-button:hover {
+  cursor: pointer;
+}
+#language-bars-container:hover {
+  cursor: pointer;
+}
 .repo-container:hover {
   border: #b3b3b3 solid 2px;
 }

@@ -13,7 +13,7 @@ def index(request):
     }
     return render(request, 'projects.html', context)
 def gitpage(request, reponame):
-    if reponame not in git.getInfoForTable('repos'):
+    if reponame not in git.getInfoForTable():
         raise Http404()
     langs = git.getLanguages(reponame)
     x, one = 0, False
@@ -22,6 +22,7 @@ def gitpage(request, reponame):
         if x == len(langs)-1: last = key
         x+=1
     if len(langs) == 1: one, first, last =True, '', ''
+    
     context = {
         'reponame': reponame,
         'link': git.getURL(reponame),
