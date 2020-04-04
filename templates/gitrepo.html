@@ -54,7 +54,7 @@
             <p style='font-size:35px; margin-bottom: 10px;'>Other Project Pages</p>
             <ul>
                 {% for key, values in repos.items%}
-                    {% if repo.0 != reponame %}
+                    {% if key != reponame %}
                         <li><a href="/projects/{{key}}" class="projlist">{{key}}</a><p style='display: inline;'> — /projects/{{key}}</p></li>
                     {% endif %}
                 {% endfor %}
