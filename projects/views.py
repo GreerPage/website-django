@@ -45,10 +45,7 @@ def sam(request):
     return render(request, 'sam.html')
 
 def update(request):
-    if request.method == 'POST':
-        git.updateAll()
-        with open(os.path.join(settings.BASE_DIR, 'json/git.json'), 'r') as e:
-            data = json.load(e)
-        return JsonResponse(data, json_dumps_params={'indent': 2})
-    else:
-        raise Http404()
+    git.updateAll()
+    with open(os.path.join(settings.BASE_DIR, 'json/git.json'), 'r') as e:
+        data = json.load(e)
+    return JsonResponse(data, json_dumps_params={'indent': 2})
