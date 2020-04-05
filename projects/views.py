@@ -1,7 +1,10 @@
 from django.shortcuts import render
 import threading
 from webvars import vars, git
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
+import json
+from websiteDjango import settings
+import os
 
 def index(request):    
     context = {
@@ -39,3 +42,9 @@ def gitpage(request, reponame):
 
 def sam(request):
     return render(request, 'sam.html')
+
+def update(request):
+    git.updateAll()
+    with open(os.path.join(settings.BASE_DIR, 'json/git.json'), 'r') as e:
+        data = json.load(e)
+    return JsonResponse(data, json_dumps_params={'indent': 2})
