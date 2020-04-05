@@ -83,7 +83,7 @@ def getGitInfo(name, arg = ''):
             return content['{}({})'.format(name, arg)]
         else:
             info = content['{}({})'.format(name, arg)]
-            if current_time[0] - info[1]['time'][0] > 0 or current_time[1] - info[1]['time'][1] >= 10:
+            if current_time[0] - info[1]['time'][0] !=  0 or current_time[1] - info[1]['time'][1] >= 10:
                 func = globals()[name](arg)
                 content['{}({})'.format(name, arg)] = [func, {'time': current_time}]
                 with open(file, 'w') as json_file:
