@@ -14,6 +14,7 @@ def index(request):
         'sociallinks': zip(vars.medialinks, vars.imgnames),
     }
     return render(request, 'projects.html', context)
+
 def gitpage(request, reponame):
     if reponame not in git.getInfoForTable():
         raise Http404()
@@ -21,7 +22,7 @@ def gitpage(request, reponame):
     x, one = 0, False
     for key in langs:
         if x == 0: first = key
-        if x == len(langs)-1: last = key
+        elif x == len(langs)-1: last = key
         x+=1
     if len(langs) == 1: one, first, last =True, '', ''
     
@@ -44,7 +45,10 @@ def sam(request):
     return render(request, 'sam.html')
 
 def update(request):
-    git.updateAll()
-    with open(os.path.join(settings.BASE_DIR, 'json/git.json'), 'r') as e:
-        data = json.load(e)
-    return JsonResponse(data, json_dumps_params={'indent': 2})
+    if request.method == 'POST':
+        git.updateAll()
+        with open(os.path.join(settings.BASE_DIR, 'json/git.json'), 'r') as e:
+            data = json.load(e)
+        return JsonResponse(data, json_dumps_params={'indent': 2})
+    else:
+        raise Http404()
