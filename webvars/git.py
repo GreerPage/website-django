@@ -10,8 +10,8 @@ try: from .vars import repocolors
 except ImportError: from vars import repocolors
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-username = 'GreerPage'
 token = open(dir_path + "/gt.txt", "r").read().replace('\n', '')
+username = requests.get('https://api.github.com/user', headers = {'Authorization': 'token {}'.format(token)}).json()['login']
 g = Github(token)
 
 def getInfoForTable(reponame = ''):

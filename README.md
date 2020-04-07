@@ -7,7 +7,6 @@ Repository for my [website](https://greerpage.com)
 - Cd to root directory and run `pip3 install -r requirements.txt`
 - In "websiteDjango/settings.py" change ```Debug = False``` to ```Debug = True```
 - Make the file "/webvars/gt.txt" in it put a [GitHub Auth Token](https://github.com/settings/tokens)
-- You may also want to change the username value in /webvars/git.py to your GitHub username
 - Cd to the root directory and run ```python3 manage.py runserver``` this will start the server on [http://localhost:8000](http://localhost:8000)
 - If you recieved an error this might be due to some sort of error with /webvars/gt.txt
 - After these changes the server should start up. Although, it will display your github repository info on the projects page
