@@ -25,12 +25,6 @@ function Slide(idname){
     document.getElementById(idname).classList.toggle('closed');
     return 0;
 }
-function getXCordForTitle() {
-    var idname = document.querySelectorAll('div.repo-container')[0].id;
-    var elem = document.getElementById(idname);
-    return elem.offsetLeft;
-}
-//jQuery
 $(document).ready(function() {
     $('#language-bars-container').click(function(){
         DisplayIdToggle('git-langs-list-container');
@@ -42,10 +36,4 @@ $(document).ready(function() {
             $('.repo-page-info').css('margin-bottom', '50px');
         }
     });
-    function updateTitle() {
-        $('.projecttitle').css('position', 'relative');
-        $('.projecttitle').css('left', getXCordForTitle());
-    }
-    updateTitle();
-    window.onresize = updateTitle;
 });
