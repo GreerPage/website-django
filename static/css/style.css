@@ -438,7 +438,7 @@ p {
     width: 75%;
   }
 }
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1144px) {
   .repos-container {
     width: 570px;
   }
