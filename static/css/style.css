@@ -146,7 +146,7 @@ html, body {
   left: 15px;
 }
 .project-main {
-  width: 50%;
+  width: 75%;
   min-height: 100%;
   position: relative;
   top: 75px;
@@ -192,9 +192,13 @@ html, body {
   border: #b3b3b3 solid 2px;
 }
 .repos-container {
-  display: flex;
+  display: inline-flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: left;
+  max-width: 850px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); 
 }
 .git-link {
   font-size: 20px;
@@ -433,11 +437,16 @@ p {
   .gittextbox{
     width: 75%;
   }
-  .project-main {
-    width: 75%;
+}
+@media screen and (max-width: 1140px) {
+  .repos-container {
+    width: 570px;
   }
 }
 @media screen and (max-width: 768px) {
+  .repos-container {
+    width: 260px;
+  }
   #Percent {
     display: none;
   }

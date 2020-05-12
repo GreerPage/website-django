@@ -3,11 +3,11 @@ function getXCordForTitle() {
     var elem = document.getElementById(idname);
     return elem.offsetLeft;
 }
-function updateTitle() {
+function resize() {
     $('.projecttitle').css('position', 'relative');
     $('.projecttitle').css('left', getXCordForTitle());
 }
 $(document).ready(function() {
-    updateTitle();
+    resize();
 });
-window.onresize = updateTitle;
+window.onresize = resize;
