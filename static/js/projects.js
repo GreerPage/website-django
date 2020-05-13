@@ -1,35 +1,46 @@
 const r = React.createElement;
 
-class Loading extends React.Component {
-    constructor() {
-        super();
-        this.state = {dots: '.'};
-    }
-    text() {
-        if (this.state.dots.length === 3) this.setState({dots: '.'});
-        else if (this.state.dots.length === 2) this.setState({dots: '...'});
-        else if (this.state.dots.length === 1) this.setState({dots: '..'});
-    }
-    componentDidMount() {
-        this.i = setInterval(() => this.text(), 500);
-    }
-    componentWillUnmount() {
-        clearInterval(this.i);
-    }
-    render() {
-        return (
-            r('div', {className: 'loading'}, r('p', null, this.state.dots))
-        );
-    }
+function Loading() {
+    return r('img', {className: 'loading-image', src: '/static/images/loading.png'})
 }
 class Git extends React.Component {
     constructor() {
         super();
-        this.state = {loading: true};
+        this.state = {loading: true, data: '', data: ''};
+    }
+    getGitInfo() {
+        fetch('api/projects')
+            .then(res => res.json())
+            .then(data => {
+                 var info = Object.keys(data).map((val, key) => {
+                    let repo = data[val]
+                    return (
+                        r('div', {className: "repo-container", id: val, key: val}, 
+                            r('a', {className: 'git-link', href: repo.url, target: '_blank'}, val),
+                            r('div', {className: "lang-button", style: {backgroundColor: `${repo.languageColor}`}, onClick: () => DisplayIdToggle(val+'-hidden')}),
+                            r('div', {id: val+'-hidden', style: {display: 'none'}},
+                                r('span', {className: 'git-dot', style: {backgroundColor: `${repo.languageColor}`}}),
+                                r('span', null, repo.language)
+                            ),
+                            r('p', {style: {marginTop: '10px'}}, repo.description),
+                            r('a', {className: 'git-link', href: '/projects/' + val}, 'see more')
+                        )
+                    )
+                });
+                console.log(info)
+                this.setState({data: info})
+                this.setState({loading: false});
+            });
+    }
+    componentDidMount() {
+        this.getGitInfo()
     }
     render() {
         if (this.state.loading) {
             return r(Loading, null);
+        }
+        else {
+            return r('div', {className: 'repos-container'}, this.state.data);
         }
     }
 }

@@ -256,12 +256,20 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 .loading {
-  font-size: 30px;
+  font-size: 20px;
   color: #313131;
   position: absolute;
   left: 50%;
   top: 30vh;
   transform: translateX(-50%);
+}
+.loading-image {
+  position: absolute;
+  left: 50%;
+  top: 30vh;
+  transform: translateX(-50%);
+  height: 30px;
+  animation: rotation 2s infinite linear;
 }
 .tabletext{
   color: #313131; 
@@ -442,6 +450,14 @@ p {
 }
 #Percent {
   display: inline-block;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 @media screen and (max-width: 1300px) {
   .gittextbox{
