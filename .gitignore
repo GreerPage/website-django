@@ -134,3 +134,5 @@ webvars/gt.txt
 json/
 #goddamn pycache
 !**/__pycache__/
+#stuff you cant see!!!!!1!
+gitapi/secrets.py

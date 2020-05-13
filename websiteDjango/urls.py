@@ -20,6 +20,7 @@ from about import views as viewsabout
 from projects import views as viewsprojects
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from websiteDjango import views as rootviews
+from gitapi import views as apiviews
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -31,7 +32,8 @@ urlpatterns = [
     path('projects/<str:reponame>', viewsprojects.gitpage),
     path('projects/<str:reponame>/', viewsprojects.gitpage),
     path('sam', viewsprojects.sam),
-    path('update-git-info', viewsprojects.update)
+    path('update-git-info', viewsprojects.update),
+    path('api/projects', apiviews.projects_page),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
