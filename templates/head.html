@@ -17,16 +17,20 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <div class="topbuttons">
-        <button class="hiddenbtn" onclick="Slide('smallmenu')"><i class="fas fa-bars fa-2x"></i></button>
-        <a class="link{{linknum}}" href="/">Greer Page</a>
-        <a class="link{{linknum}}" href="/about">About</a>
-        <a class="link{{linknum}}" href="/projects">Projects</a>
-        <a class="link0" href="/">Greer Page</a>
-    </div>
-    <div class="smallmenu closed" id="smallmenu">
-        <a class="link10" href="/about">About</a>
-        <a class="link10" href="/projects">Projects</a>
+    <div>
+        <div class="navbar" id="navbar">
+            <a class="link{{linknum}}" href="/">Greer Page</a>
+            <a class="link{{linknum}}" href="/about">About</a>
+            <a class="link{{linknum}}" href="/projects">Projects</a>
+        </div>
+        <div id="more-links" class="mobile-nav">
+                <a href="/about">About</a>
+                <a href="/projects">Projects</a>
+        </div>
+        <div class="mobile-nav">
+            <a href="/">Greer Page</a>
+            <button class="menu-button" onclick="display()"><i class="fas fa-bars fa-2x"></i></button>    
+        </div>
     </div>
     {% block body %}{% endblock %}
     {% if bottom == True %}    

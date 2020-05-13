@@ -1,21 +1,21 @@
 const r = React.createElement;
 
 function Loading() {
-    return r('img', {className: 'loading-image', src: '/static/images/loading.png'})
+    return r('img', {className: 'loading-image', src: '/static/images/loading.png'});
 }
 class Git extends React.Component {
     constructor() {
         super();
-        this.state = {loading: true, data: '', data: ''};
+        this.state = {loading: true, data: ''};
     }
     getGitInfo() {
         fetch('api/projects')
             .then(res => res.json())
             .then(data => {
                  var info = Object.keys(data).map((val, key) => {
-                    let repo = data[val]
+                    let repo = data[val];
                     return (
-                        r('div', {className: "repo-container", id: val, key: val}, 
+                        r('div', {className: "repo-container", id: val, key: key}, 
                             r('a', {className: 'git-link', href: repo.url, target: '_blank'}, val),
                             r('div', {className: "lang-button", style: {backgroundColor: `${repo.languageColor}`}, onClick: () => DisplayIdToggle(val+'-hidden')}),
                             r('div', {id: val+'-hidden', style: {display: 'none'}},
@@ -25,15 +25,14 @@ class Git extends React.Component {
                             r('p', {style: {marginTop: '10px'}}, repo.description),
                             r('a', {className: 'git-link', href: '/projects/' + val}, 'see more')
                         )
-                    )
+                    );
                 });
-                console.log(info)
-                this.setState({data: info})
+                this.setState({data: info});
                 this.setState({loading: false});
             });
     }
     componentDidMount() {
-        this.getGitInfo()
+        this.getGitInfo();
     }
     render() {
         if (this.state.loading) {
@@ -50,4 +49,4 @@ $(document).ready(() => {
         r(Git, null, null),
         document.getElementById('root')
     ); 
-})
+});

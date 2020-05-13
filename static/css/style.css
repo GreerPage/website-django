@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  
+  font-family: 'Roboto', sans-serif;
 }
 .btn {
   background-color: Transparent; 
@@ -13,7 +13,17 @@ html, body {
   padding: 5px;
   border-radius: 12px;
 }
-
+.navbar {
+  z-index: 100;
+  position: absolute;
+  top: 20px;
+  left: 2%;
+  height: 20px;
+  width: 60%;
+}
+.mobile-nav {
+  display: none;
+}
 .btn:hover {
   opacity: 0.6;
 }
@@ -367,6 +377,7 @@ p {
   border-top: 1px solid #b3b3b3;
   border-collapse: collapse;
 }​
+.white {color: white}
 .caption{
   color: white;
   font-family: 'Roboto', sans-serif;
@@ -470,39 +481,57 @@ p {
   }
 }
 @media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .mobile-nav {
+    z-index: 10; 
+    display: block;
+    width: 100%;
+    min-height: 60px;
+    background-color: white;
+    position: absolute;
+  }
+  .mobile-nav a {
+    width: fit-content;
+    display: block;
+    color: #313131;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+    left: 10%;
+  } 
+  #more-links {
+    z-index: 9;
+    position: absolute;
+    top: -120px;
+    background-color: white;
+    width: 100%;
+    transition: all 0.5s ease 0s;
+  }
+  .menu-button {
+    position: absolute;
+    right: 15%;
+    top: 15px;
+    border: 0;
+    background: none;
+    color: #4b4b4b;
+  }
+  .menu-button:focus {outline: 0;}
+  .menu-button:active {opacity: 0.5;}
   .repos-container {
     width: 260px;
   }
   #Percent {
     display: none;
   }
-  .topbuttons {
-    z-index: 11;
-    background-color: white;
-    height: 70px;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-  }
   .link{
     display: none;
   }
   .link1{
     display: none;
-  }
-  .link0{
-    z-index: 11;
-    display: inline;
-    text-decoration:none;
-    color: #313131; 
-    font-size: 20px; 
-    cursor: pointer;
-    border-radius: 12px;
-    font-family: 'Roboto', sans-serif;
-    position: absolute;
-    top: 20px; 
-    left: 10%;
   }
   .hiddenbtn{
     display: inline;
@@ -517,59 +546,6 @@ p {
   }
   .hiddenbtn:hover{
     opacity: 0.6;
-  }
-  .smallmenu{
-    overflow-y: hidden;
-    overflow-x: hidden;
-    z-index: 10;
-    height: 180px;
-    max-height:180px;
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    top: 0px;
-    transition-property: all;
-    transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-    opacity: 1;
-    
-  }
-  .smallmenu.closed{
-    max-height: 0;
-    transition-property: all;
-    transition-duration: 2s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  }
-  .smallmenu.closed1{
-    display: none;
-  }
-  .link10{
-    display: block;
-    z-index: 12;
-    text-decoration:none;
-    color: #313131; 
-    font-size: 20px; 
-    cursor: pointer;
-    padding-bottom: 30px;
-    border-radius: 12px;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-    top: 70px;
-    left: 10%;
-  }
-  .link10about{
-    display: block;
-    z-index: 120;
-    text-decoration:none;
-    color: #313131; 
-    font-size: 20px; 
-    cursor: pointer;
-    padding-bottom: 30px;
-    border-radius: 12px;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-    top: -10px;
-    left: 10%;
   }
 }
 @media screen and (max-width: 490px) {

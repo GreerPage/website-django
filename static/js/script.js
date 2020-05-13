@@ -25,6 +25,18 @@ function Slide(idname){
     document.getElementById(idname).classList.toggle('closed');
     return 0;
 }
+function display() {
+    var ele = document.getElementById('more-links');
+    var dis = getComputedStyle(ele).top;
+    if(dis === "-120px") {
+        ele.style.top = '60px';
+        return;
+    }
+    else {
+        ele.style.top = '-120px';
+        return;
+    }  
+}
 $(document).ready(function() {
     $('#language-bars-container').click(function(){
         DisplayIdToggle('git-langs-list-container');
