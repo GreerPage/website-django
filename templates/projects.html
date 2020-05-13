@@ -1,7 +1,14 @@
 {% extends 'head.html' %}
 {% load static %}
 
-{% block head %} 
+{% block head %}  
+    {% if host == 'greerpage.com' %}
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    {% else %}
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    {% endif %}
     <script src="{% static 'js/projects.js' %}"></script>
     <title>Projects</title>
 {% endblock %}
@@ -11,7 +18,8 @@
         <div class="project-main">
             <div class="repos-container" id="repos-container">
                 <div class="projecttitle"><p>Projects</p></div>
-                    {% for key, values in repos.items%}
+                    <div id="root"></div>
+                    <!--{% for key, values in repos.items%}
                         <div class='repo-container' id="{{key}}-container">
                             <a class="git-link" href="{{values.0}}" target="_blank">{{key}}</a>
                             <button class="lang-button" style="background-color: {{values.3}};" onclick="DisplayIdToggle('{{key}}-hidden')"></button>
@@ -22,7 +30,7 @@
                             <p style="margin-top: 10px;">{{values.1}}</p>
                             <a class="git-link"href="/projects/{{key}}">see more</a>
                         </div>
-                    {% endfor %}
+                    {% endfor %}-->
                 </div>
             </div>
         </div>

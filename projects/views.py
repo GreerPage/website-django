@@ -12,6 +12,7 @@ def index(request):
         'linknum': '1',
         'bottom': True,
         'sociallinks': zip(vars.medialinks, vars.imgnames),
+        'host': request.get_host()
     }
     return render(request, 'projects.html', context)
 

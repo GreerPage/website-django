@@ -196,6 +196,7 @@ html, body {
   flex-flow: row wrap;
   justify-content: left;
   max-width: 850px;
+  width: 850px;
   position: relative;
   left: 50%;
   transform: translateX(-50%); 
@@ -254,6 +255,14 @@ html, body {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
 }
+.loading {
+  font-size: 30px;
+  color: #313131;
+  position: absolute;
+  left: 50%;
+  top: 30vh;
+  transform: translateX(-50%);
+}
 .tabletext{
   color: #313131; 
   font-size: 20px;
@@ -262,6 +271,7 @@ html, body {
   font-weight: normal;
 }
 .projecttitle{
+  margin-left: 20px;
   font-size: 35px;
   width: 100%;
   text-align: left;
