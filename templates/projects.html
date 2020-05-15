@@ -10,34 +10,29 @@
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     {% endif %}
     <script src="{% static 'js/projects.js' %}"></script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        @media screen and (max-width: 200px) {
+            body {
+            overflow-x: unset;
+            }
+        }
+    </style>
     <title>Projects</title>
 {% endblock %}
 
 {% block body %} 
     <div class="projectimg">
         <div class="project-main">
-            <div class="repos-container" id="repos-container">
+            <div class="repos-container">
                 <div class="projecttitle"><p>Projects</p></div>
-                    <div id="root"></div>
-                </div>
+            </div>
+                 <div id="root"></div>
             </div>
         </div>
         <div style="height: 20vh; width: 100%;"></div>
     </div>
-    <div class='projectreadmore'>
-        <div class='projectreadmoretext'>
-            <p style='font-size:35px; margin-bottom: 10px;'>GitHub Repositories</p>
-            <ul style="padding-bottom: 50px;">
-                {% for key, values in repos.items%}
-                    <li><a href="{{values.0}}" target="_blank"class="projlist">{{key}}</a><p style='display: inline;'> — {{values.1}}</p></li>
-                {% endfor %}
-            </ul>
-            <p style='font-size:35px; margin-bottom: 10px;'>Project Pages</p>
-            <ul>
-                {% for key, values in repos.items%}
-                    <li><a href="/projects/{{key}}" class="projlist">{{key}}</a><p style='display: inline;'> — /projects/{{key}}</p></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+    
 {% endblock %}

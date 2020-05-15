@@ -1,13 +1,23 @@
 {% extends 'head.html' %}
 {% load static %}
 {% block head %}
+{% if host == 'greerpage.com' %}
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+{% else %}
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+{% endif %}
+<script src="{% static 'js/gitPage.js' %}"></script>
 <title>projects — {{reponame}}</title>
 {% endblock %}
 {% block body %}
     <div class="projectimg">
-        <div class="gittextbox">
-            <a href="{{link}}" target="_blank" class="gitpagelink">{{reponame}}</a>
-            <div style="height: 20px; width: 100%;"></div>
+        <div style="min-height: 100vh; width: 100%;">
+
+        </div>
+        <div id="react-root"></div>
+        <!--<div class="gittextbox">
             <div class="repo-page-info">
                 <div id="language-bars-container"class='language-bars-container'>
                     {% for key, values in langs.items %}
@@ -42,7 +52,7 @@
             </div>
             {% endif %}
         </div>
-    </div>
+    </div>-->
     <div class='projectreadmore'>
         <div class='projectreadmoretext'>
             <p style='font-size:35px; margin-bottom: 10px;'>GitHub Repositories</p>

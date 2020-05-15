@@ -8,7 +8,6 @@ import os
 
 def index(request):    
     context = {
-        'repos': git.getGitInfo('getInfoForTable', "")[0],
         'linknum': '1',
         'bottom': True,
         'sociallinks': zip(vars.medialinks, vars.imgnames),

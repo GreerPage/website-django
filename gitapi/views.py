@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import JsonResponse
 from .secrets import token
 from github import Github
@@ -26,3 +25,31 @@ def projects_page(request):
             repos[repo.name]['languageColor'] = vars_file.repocolors[repo.language]
     
     return JsonResponse(repos)
+
+def git_pages(request, reponame):
+    user = g.get_user()
+    repo = user.get_repo(reponame)
+    return JsonResponse({reponame: {
+                            'url': repo.html_url, 
+                            'languages': getLanguages(repo),
+                            'readme': getREADME(repo)
+                            }
+                        })
+    
+def getREADME(repo):
+    try:
+        readme = repo.get_contents('README.md')
+        readme = (base64.b64decode(readme.content).decode('Utf-8'))
+        return markdown(readme)
+    except:
+        return '<p>ERROR: Cannot find README.md in this repository :(</p>'
+
+def getLanguages(repo):
+    total = 0
+    langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
+    for key in langs:
+        total += langs[key]
+    for key in langs:
+        per = round(langs[key]/total*100, 2)
+        langs[key] = {'percent': per, 'color': vars_file.repocolors[key]}
+    return langs

@@ -34,6 +34,7 @@ urlpatterns = [
     path('sam', viewsprojects.sam),
     path('update-git-info', viewsprojects.update),
     path('api/projects', apiviews.projects_page),
+    path('api/projects/<str:reponame>', apiviews.git_pages),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
