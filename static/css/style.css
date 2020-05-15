@@ -61,13 +61,12 @@ html, body {
   list-style: none;
   font-size: 20px;
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-evenly;
   grid-column-gap: 20px;
 }
 .git-langs-list li {
-  display: inline; 
-  margin-left: 15px;
+  display: inline-block; 
+  width: fit-content;
 }
 .git-langs-list-container {
   position: relative;

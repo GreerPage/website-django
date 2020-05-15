@@ -37,15 +37,13 @@ function display() {
         return;
     }  
 }
-$(document).ready(function() {
-    $('#language-bars-container').click(function(){
-        DisplayIdToggle('git-langs-list-container');
-        padding = $('.repo-page-info').css('margin-bottom');
-        if(padding === '50px') {
-            $('.repo-page-info').css('margin-bottom', '20px');
-        }
-        else {
-            $('.repo-page-info').css('margin-bottom', '50px');
-        }
-    });
-});
+function displayList() {
+    DisplayIdToggle('git-langs-list-container');
+    padding = $('.repo-page-info').css('margin-bottom');
+    if(padding === '50px') {
+        $('.repo-page-info').css('margin-bottom', '20px');
+    }
+    else {
+        $('.repo-page-info').css('margin-bottom', '50px');
+    }
+}

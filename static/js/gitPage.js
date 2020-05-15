@@ -3,22 +3,37 @@ const r = React.createElement;
 function LanguageBar(props) {
     var data = props.data;
     return (
-        r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}}, 
+        r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}, onClick: () => displayList()}, 
             Object.keys(data).map((val, index) => {
                 let info = data[val];
                 if (index === 0) {
-                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderBottomLeftRadius: '5px', borderTopLeftRadius: '5px'}, key: index})
+                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderBottomLeftRadius: '5px', borderTopLeftRadius: '5px'}, key: index});
                 }
                 else if (index === Object.keys(data).length-1) {
-                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderBottomRightRadius: '5px', borderTopRightRadius: '5px'}, key: index}) 
+                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderBottomRightRadius: '5px', borderTopRightRadius: '5px'}, key: index}); 
                 }
-                return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color}, key: index})
+                return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color}, key: index});
             })
         )
     );
 }
-function LanguageList (props) {
+function LanguageList(props) {
     var data = props.data;
+    return (
+        r('div', {className: 'git-langs-list-container', id: 'git-langs-list-container'},
+            r('ul', {className: 'git-langs-list'},
+                Object.keys(data).map((val, index) => {
+                    let info = data[val];
+                    return (
+                        r('li', {key: index}, 
+                            r('span', {className: 'git-dot', style : {backgroundColor: info.color}}),
+                            r('span', null, val+ ' ', r('span', {id: 'Percent'}, `${info.percent}%`))
+                        )
+                    )
+                })
+            )
+        )
+    );
 }
 class GitPage extends React.Component {
     constructor(props) {
@@ -30,6 +45,7 @@ class GitPage extends React.Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({data: data[this.props.name]});
+                document.getElementById('gitpagelink').href = data[this.props.name].url
                 this.setState({loading: false});
             });
     }
@@ -43,8 +59,8 @@ class GitPage extends React.Component {
         else {
             return (
                 r('div', null, 
-                    r('a', {className: 'gitpagelink', href: this.state.data.url}, this.props.name),
-                    r(LanguageBar, {data: this.state.data.languages})
+                    r(LanguageBar, {data: this.state.data.languages}),
+                    r(LanguageList, {data: this.state.data.languages})
                 )
             );
         }
@@ -52,6 +68,7 @@ class GitPage extends React.Component {
 }
 
 $(document).ready(() => {
+    
     var reponame = window.location.pathname.replace('/projects/', '')
     ReactDOM.render(
         r(GitPage, {name: reponame}),
