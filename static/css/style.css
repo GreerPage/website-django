@@ -32,7 +32,7 @@ html, body {
   top: 30%;
   left: 10px;
 }
-.laguage-bars {
+.language-bars {
   padding: 0; 
   margin-right: 1px;
   height: 20px; 
@@ -47,6 +47,9 @@ html, body {
   top: 15px;
   padding: 0;
   border-radius: 3px;
+}
+.language-bars-container:hover {
+  cursor: pointer;
 }
 .repo-page-info {
   height: 30px;
