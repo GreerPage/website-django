@@ -17,57 +17,10 @@
         <div class="gittextbox" style="min-height: 100vh;">
             <a href="" class="gitpagelink" id="gitpagelink" target="_blank">{{reponame}}</a>
             <div id="react-root"></div>
-            <!--<div class="repo-page-info">
-                <div id="language-bars-container"class='language-bars-container'>
-                    {% for key, values in langs.items %}
-                            {% if key == first %}
-                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-top-left-radius: 5px; border-bottom-left-radius: 5px;"></span>
-                            {% elif key == last %}
-                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"></span>
-                            {% elif one == True %}
-                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}}; border-radius: 5px;"></span>  
-                            {% else %}
-                                <span class="laguage-bars"style="width: {{values.0}}%; background-color: {{values.1}};"></span>      
-                            {% endif %}                  
-                    {% endfor %}
-                </div>
-            </div>
-            <div id="git-langs-list-container"class="git-langs-list-container">
-                <ul class="git-langs-list">
-                    {% for key, values in langs.items %}
-                        <li><span class="git-dot" style="background-color: {{values.1}};"></span><span>{{key}} <span id="Percent">{{values.0}}%</span></span></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!--{% if readme == 'ERROR: Cannot find README.md in this repository :(' %}
-                <p>ERROR: Cannot find README.md in this repository :(</p>
-            {% endif %}
-            {% if readme != 'ERROR: Cannot find README.md in this repository :(' %}
-            <div class="readme">
-                <div class="readmetop"><p style='margin: 0; padding-top: 10px; padding-left: 10px;'>README.md</p></div>
-                <div style='padding: 7%; padding-top: 0;'>
-                    {{readme | safe}}
-                </div>
-            </div>
-            {% endif %}-->
         </div>
     </div>
     <div class='projectreadmore'>
         <div class='projectreadmoretext'>
-            <p style='font-size:35px; margin-bottom: 10px;'>GitHub Repositories</p>
-            <ul>
-                {% for key, values in repos.items%}
-                    <li><a href="{{values.0}}" target="_blank"class="projlist">{{key}}</a><p style='display: inline;'> — {{values.1}}</p></li>
-                {% endfor %}
-            </ul>
-            <p style='font-size:35px; margin-bottom: 10px;'>Other Project Pages</p>
-            <ul>
-                {% for key, values in repos.items%}
-                    {% if key != reponame %}
-                        <li><a href="/projects/{{key}}" class="projlist">{{key}}</a><p style='display: inline;'> — /projects/{{key}}</p></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+            <div id="bottom-root"></div>
     </div>
 {% endblock %}

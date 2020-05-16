@@ -18,26 +18,12 @@ def index(request):
 def gitpage(request, reponame):
     if reponame not in git.getInfoForTable():
         raise Http404()
-    langs = git.getGitInfo('getLanguages', reponame)[0]
-    x, one = 0, False
-    for key in langs:
-        if x == 0: first = key
-        elif x == len(langs)-1: last = key
-        x+=1
-    if len(langs) == 1: one, first, last =True, '', ''
-    
     context = {
         'reponame': reponame,
-        'link': git.getGitInfo('getURL', reponame)[0],
         'linknum': '1',
-        'readme': git.getGitInfo('getREADME', reponame)[0],
         'repos': git.getGitInfo('getInfoForTable', "")[0],
         'sociallinks': zip(vars.medialinks, vars.imgnames),
         'bottom': True,
-        'langs' : langs,
-        'first':first,
-        'last': last,
-        'one': one,
     }
     return render(request, 'gitrepo.html', context)
 
