@@ -1,5 +1,31 @@
 const r = React.createElement;
 
+class Loading extends React.Component {
+    constructor() {
+        super();
+        this.messages = ['petting octocat...', 'fetching json...', 'waiting for github...', 'catching gerbals...', 'feeding pidgeons...', 'waiting for backend wizards to awaken...', 'donating eyes to cyclopses...'];
+        this.state = {message: this.messages[Math.floor(Math.random() * this.messages.length)]};
+    }
+    componentDidMount() {
+        this.i = setInterval(() => {
+            this.setState({message: this.messages[Math.floor(Math.random() * this.messages.length)]})
+        }, 800);
+    }
+    componentWillUnmount() {
+        clearInterval(this.i)
+    }
+    render() {
+        return (
+            r('div', {className: 'loading-box'},
+                r('img', {src: '/static/images/loading-github.png'}),
+                r('div', {className: 'loading-box-text'},
+                    r('p', null, this.state.message)
+                )
+            )
+        )
+    }
+}
+
 function LanguageBar(props) {
     var data = props.data;
     return (
@@ -40,7 +66,6 @@ function LanguageList(props) {
 }
 function md(mark) {
     var md = new Remarkable();
-    console.log(md.render(mark))
     return {__html: md.render(mark)};
 }
 function ReadMe(props) {
@@ -77,7 +102,7 @@ class GitPage extends React.Component {
     }
     render() {
         if (this.state.loading) {
-            return r('div', null);
+            return r(Loading, null);
         }
         else {
             return (
