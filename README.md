@@ -24,8 +24,8 @@ Repository for my [website](https://greerpage.com)
 fetch('api/projects/website-django')
     .then(res => res.json())
     .then(data => {
-        this.setState({data: data})
-    })
+        this.setState({data: data});
+    });
 ```
 ## directories
 - about — about page
