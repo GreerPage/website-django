@@ -13,16 +13,15 @@ Repository for my [website](https://greerpage.com)
 
 ## GitHub Information
 - I am communicating with the [Github Api](https://developer.github.com/v3/) to get the information seen on the projects pages.
-- In the front end the requests are made using [react](https://reactjs.org)
-- Th backend uses a python wrapper api called [PyGitHub](https://github.com/PyGithub/PyGithub)
+- To do this I am using a python wrapper api called [PyGitHub](https://github.com/PyGithub/PyGithub)
 
 ## react
 - I am using a minimal amount of [reactjs](https://reactjs.org) in the front end to handle fetching the git information
-- This code can b found in `static/js`
+- This code can be found in `static/js`
 - I originaly had all of the git info being fetched in the backend on page render, this drastically slowed down the load times of the site, so I decided to make the requests in the front end.
 - I wrote all of the react in pure js rather than in JSX for reasons that I cannot explain.
 - If you don't know how to use react in pure js, check out an online compiler [here](https://babeljs.io/repl)
-- Rather tahn fetching to the full github api I set up my own api that has only the information I need, this is what the react interacts with
+- Rather than fetching to the full github api I set up my own api that has only the information I need, this is what the react interacts with
 
 ## HTML
 - All HTML files can be found in `/templates`
@@ -38,14 +37,14 @@ Repository for my [website](https://greerpage.com)
 - This is why I might be changing to [Flask](https://flask.palletsprojects.com/en/1.1.x/) in the future
 
 ## Api
-- The "api" is very simple, all it does is make a requet to the github api when it is requested and returns only the necessary information. 
+- The "api" is very simple, all it does is make a request to the github api when it is requested and returns only the necessary information. 
 - This is what the react fetchs from
 
 
 ## Directories
-- about — renders about page
-- homepage — renders home page
-- projects — renders base project page
+- about — about page
+- homepage — home page
+- projects — base project page
 - static — contains css, js, and images
 - templates — all HTML files
 - websiteDjango — main configuration files like routing and settings
