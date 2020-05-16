@@ -6,6 +6,9 @@ function LanguageBar(props) {
         r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}, onClick: () => displayList()}, 
             Object.keys(data).map((val, index) => {
                 let info = data[val];
+                if (Object.keys(data).length === 1) {
+                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderRadius: '5px'}, key: index});
+                }
                 if (index === 0) {
                     return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderBottomLeftRadius: '5px', borderTopLeftRadius: '5px'}, key: index});
                 }
@@ -35,6 +38,24 @@ function LanguageList(props) {
         )
     );
 }
+function md(mark) {
+    var md = new Remarkable();
+    return {__html: md.render(mark)};
+}
+function ReadMe(props) {
+    var readme = props.readme;
+    if (readme === 'ERROR: Cannot find README.md in this repository :(') {
+        return r('p', {style: {marginTop: '50px',}, dangerouslySetInnerHTML: md(readme)});
+    }
+    else {
+        return (
+            r('div', {className: 'readme'},
+                r('div', {className: 'readmetop'}, r('p', {style: {margin: 0, paddingTop: '10px', paddingLeft: '10px'}}, 'README.md')),
+                r('div', {style: {paddingTop: 0, padding: '7%'}, dangerouslySetInnerHTML: md(readme)})
+            )
+        ) 
+    }
+}
 class GitPage extends React.Component {
     constructor(props) {
         super(props);
@@ -60,7 +81,8 @@ class GitPage extends React.Component {
             return (
                 r('div', null, 
                     r(LanguageBar, {data: this.state.data.languages}),
-                    r(LanguageList, {data: this.state.data.languages})
+                    r(LanguageList, {data: this.state.data.languages}),
+                    r(ReadMe, {readme: this.state.data.readme})
                 )
             );
         }
@@ -68,7 +90,6 @@ class GitPage extends React.Component {
 }
 
 $(document).ready(() => {
-    
     var reponame = window.location.pathname.replace('/projects/', '')
     ReactDOM.render(
         r(GitPage, {name: reponame}),

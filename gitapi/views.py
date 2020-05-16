@@ -3,7 +3,6 @@ from .secrets import token
 from github import Github
 import os
 import base64
-from markdown import markdown
 import requests
 import json
 from websiteDjango import settings
@@ -40,9 +39,9 @@ def getREADME(repo):
     try:
         readme = repo.get_contents('README.md')
         readme = (base64.b64decode(readme.content).decode('Utf-8'))
-        return markdown(readme)
+        return readme
     except:
-        return '<p>ERROR: Cannot find README.md in this repository :(</p>'
+        return 'ERROR: Cannot find README.md in this repository :('
 
 def getLanguages(repo):
     total = 0
