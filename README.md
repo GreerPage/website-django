@@ -7,7 +7,8 @@ Repository for my [website](https://greerpage.com)
 - Cd to root directory and run `pip3 install -r requirements.txt`
 - In `websiteDjango/settings.py` change `Debug = False` to `Debug = True` so that django will serve static files.
 - Make the file `gitapi/secrets.py` in this file write: `token = <your token>` find out more about github auth tokens [here](https://github.com/settings/tokens)
-- Cd to the root directory and run ```python3 manage.py runserver``` this will start the server on [http://localhost:8000](http://localhost:8000)
+- Cd to the root directory and run `python3 manage.py migrate` 
+- Then run `python3 manage.py runserver` this will start the server on [http://localhost:8000](http://localhost:8000)
 - If you recieved an error this might be due to some sort of error with `gitapi/secrets.py`
 - After these changes the server should start up. Although, it will display your github repository info on the projects page
 ## front end

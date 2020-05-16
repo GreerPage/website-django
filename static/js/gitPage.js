@@ -1,16 +1,6 @@
 const r = React.createElement;
 
-function LanguageBars(props) {
-    var data = props.data;
-    return (
-        r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}, onClick: () => displayList()}, 
-            Object.keys(data).map((val, index) => {
-                let info = data[val];
-                return r(LanguageBar, {data: info, order: index, total: Object.keys(data).length, key: index});
-            })
-        )
-    );
-}
+
 function highlight(str, lang) {
     if (lang && hljs.getLanguage(lang)) {
         try {
@@ -24,6 +14,19 @@ function highlight(str, lang) {
   
       return '';
 }
+
+function LanguageBars(props) {
+    var data = props.data;
+    return (
+        r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}, onClick: () => displayList()}, 
+            Object.keys(data).map((val, index) => {
+                let info = data[val];
+                return r(LanguageBar, {data: info, order: index, total: Object.keys(data).length, key: index});
+            })
+        )
+    );
+}
+
 function LanguageBar(props) {
     var order = props.order;
     var data = props.data;
@@ -39,6 +42,7 @@ function LanguageBar(props) {
     }
     return r('span', {className: 'language-bars', style: style});
 }
+
 function LanguageList(props) {
     var data = props.data;
     return (
@@ -69,7 +73,7 @@ function ReadMe(props) {
     else {
         return (
             r('div', {className: 'readme'},
-                r('div', {className: 'readmetop'}, r('p', {style: {margin: 0, paddingTop: '10px', paddingLeft: '10px'}}, 'README.md')),
+                r('div', {className: 'readmetop'}, r('p', {style: {margin: 0, paddingTop: '10px', paddingLeft: '10px'}}, 'readme')),
                 r('div', {style: { padding: '7%', paddingTop: '0px'}, dangerouslySetInnerHTML: md(readme)})
             )
         ) 
