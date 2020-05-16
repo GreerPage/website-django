@@ -27,7 +27,8 @@ def gitpage(request, reponame):
         'linknum': '1',
         'sociallinks': zip(vars.medialinks, vars.imgnames),
         'bottom': True,
-        'repos': repos
+        'repos': repos,
+        'host': request.get_host(),
     }
     return render(request, 'gitrepo.html', context)
 
