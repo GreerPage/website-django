@@ -11,8 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-from webvars import git
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'websiteDjango.settings')
 
 application = get_wsgi_application()
