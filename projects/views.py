@@ -45,3 +45,6 @@ def get_repos():
 
 def sam(request):
     return render(request, 'sam.html')
+
+def __error_page(request):
+    return render(request, 'error.html', context = {'errornum': 500, 'error': 'go away', 'nav': True, 'linknum': 1})
