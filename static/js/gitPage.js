@@ -57,21 +57,6 @@ function ReadMe(props) {
     }
 }
 
-function MorePages(props) {
-    var data = props.data;
-    var name = props.name;
-    var lis = Object.keys(data).map(val => {
-        if(val !== name) {
-            return r('li', {key: val}, r('a', {href: data.url, className: 'projlist', target: '_blank'}, val), r('span', null, ' — ' + data[val].description));
-        }
-    });
-    return (
-        r('div', null,
-            r('h1', {style:{marginTop: '10px', fontWeight: 'normal'}}, 'more pages'),
-            r('ul', null, lis)
-        )
-    );
-}
 class GitPage extends React.Component {
     constructor(props) {
         super(props);
@@ -104,42 +89,11 @@ class GitPage extends React.Component {
         }
     }
 }
-class Bottom extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {loading: true, data: ''};
-    }
-    getGitInfo() {
-        fetch('/api/projects')
-            .then(res => res.json())
-            .then(data => {
-                this.setState({data: data});
-                this.setState({loading: false});
-            });
-    }
-    componentDidMount() {
-        this.getGitInfo();
-    }
-    render() {
-        if (this.state.loading) {
-            return r('div', null, 'loading');
-        }
-        else {
-            return (
-                r(MorePages, {data: this.state.data, name: this.props.name})
-            );
-        }
-    }
-}
 
 $(document).ready(() => {
     var reponame = window.location.pathname.replace('/projects/', '')
     ReactDOM.render(
         r(GitPage, {name: reponame}),
         document.getElementById('react-root')
-    ); 
-    ReactDOM.render(
-        r(Bottom, {name: reponame}),
-        document.getElementById('bottom-root')
     );
 });

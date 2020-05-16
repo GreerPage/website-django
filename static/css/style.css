@@ -107,7 +107,7 @@ html, body {
   text-align: center;
   overflow: hidden;
   position: relative;
-  top: 50px;`
+  top: 50px;
 }
 .projectreadmoretext{
   color: white;
@@ -120,6 +120,7 @@ html, body {
   transform: translateX(-50%);
   width: 75%;
   min-height: 200px;
+  padding: 40px;
 }
 .links{
   text-align: center;
