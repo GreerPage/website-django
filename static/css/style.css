@@ -315,12 +315,13 @@ html, body {
   padding-left: 3px;
   padding-right: 3px;
   border-radius: 5px;
-  font-size: 17px;
+  font-size: 15px;
 }
 .readme pre  {
   padding: 10px;
   border-radius: 5px;
   width: 100%;
+  overflow: auto;
   background-color: #f0f0f0;
   height: fit-content
 }

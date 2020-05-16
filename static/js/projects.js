@@ -37,7 +37,7 @@ class Git extends React.Component {
     }
     render() {
         if (this.state.loading) {
-            return r('div', null);
+            return r(Loading, null);
         }
         else {
             return r('div', {className: 'repos-container'}, this.state.data);

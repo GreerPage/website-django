@@ -1,50 +1,43 @@
 const r = React.createElement;
 
-class Loading extends React.Component {
-    constructor() {
-        super();
-        this.messages = ['petting octocat...', 'fetching json...', 'waiting for github...', 'catching gerbals...', 'feeding pidgeons...', 'waiting for backend wizards to awaken...', 'donating eyes to cyclopses...'];
-        this.state = {message: this.messages[Math.floor(Math.random() * this.messages.length)]};
-    }
-    componentDidMount() {
-        this.i = setInterval(() => {
-            this.setState({message: this.messages[Math.floor(Math.random() * this.messages.length)]})
-        }, 800);
-    }
-    componentWillUnmount() {
-        clearInterval(this.i)
-    }
-    render() {
-        return (
-            r('div', {className: 'loading-box'},
-                r('img', {src: '/static/images/loading-github.png'}),
-                r('div', {className: 'loading-box-text'},
-                    r('p', null, this.state.message)
-                )
-            )
-        )
-    }
-}
-
-function LanguageBar(props) {
+function LanguageBars(props) {
     var data = props.data;
     return (
         r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}, onClick: () => displayList()}, 
             Object.keys(data).map((val, index) => {
                 let info = data[val];
-                if (Object.keys(data).length === 1) {
-                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderRadius: '5px'}, key: index});
-                }
-                if (index === 0) {
-                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderBottomLeftRadius: '5px', borderTopLeftRadius: '5px'}, key: index});
-                }
-                else if (index === Object.keys(data).length-1) {
-                    return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color, borderBottomRightRadius: '5px', borderTopRightRadius: '5px'}, key: index}); 
-                }
-                return r('span', {className: 'language-bars', style: {width: info.percent + '%', backgroundColor: info.color}, key: index});
+                return r(LanguageBar, {data: info, order: index, total: Object.keys(data).length, key: index});
             })
         )
     );
+}
+function highlight(str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(lang, str).value;
+        } catch (__) {}
+      }
+  
+      try {
+        return hljs.highlightAuto(str).value;
+      } catch (__) {}
+  
+      return '';
+}
+function LanguageBar(props) {
+    var order = props.order;
+    var data = props.data;
+    var total = props.total;
+    var style = {width: data.percent+'%', backgroundColor: data.color};
+    if (order === 0) {
+        style.borderBottomLeftRadius = '5px';
+        style.borderTopLeftRadius = '5px';
+    }
+    if (order === total-1) {
+        style.borderBottomRightRadius = '5px';
+        style.borderTopRightRadius = '5px';
+    }
+    return r('span', {className: 'language-bars', style: style});
 }
 function LanguageList(props) {
     var data = props.data;
@@ -65,7 +58,7 @@ function LanguageList(props) {
     );
 }
 function md(mark) {
-    var md = new Remarkable();
+    var md = new Remarkable('full', {highlight: (str, lang) => highlight(str, lang)});
     return {__html: md.render(mark)};
 }
 function ReadMe(props) {
@@ -107,7 +100,7 @@ class GitPage extends React.Component {
         else {
             return (
                 r('div', null, 
-                    r(LanguageBar, {data: this.state.data.languages}),
+                    r(LanguageBars, {data: this.state.data.languages}),
                     r(LanguageList, {data: this.state.data.languages}),
                     r(ReadMe, {readme: this.state.data.readme})
                 )
