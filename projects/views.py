@@ -9,6 +9,8 @@ from gitapi import views
 from github import Github
 import os
 
+g = Github(secrets.token)
+
 def index(request):    
     context = {
         'linknum': '1',
@@ -33,7 +35,6 @@ def gitpage(request, reponame):
     return render(request, 'gitrepo.html', context)
 
 def get_repos():
-    g = Github(secrets.token)
     username = views.username
     repos = {}
     for repo in g.get_user().get_repos(visibility='public'):
