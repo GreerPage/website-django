@@ -317,6 +317,13 @@ html, body {
   border-radius: 5px;
   font-size: 17px;
 }
+.readme pre  {
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: #f0f0f0;
+  height: fit-content
+}
 .readme a:hover{
   text-decoration: underline;
 }

@@ -40,6 +40,7 @@ function LanguageList(props) {
 }
 function md(mark) {
     var md = new Remarkable();
+    console.log(md.render(mark))
     return {__html: md.render(mark)};
 }
 function ReadMe(props) {

@@ -15,7 +15,7 @@ Repository for my [website](https://greerpage.com)
 - I am communicating with the [Github Api](https://developer.github.com/v3/) to get the information seen on the projects pages.
 - To do this I am using a python wrapper api called [PyGitHub](https://github.com/PyGithub/PyGithub)
 
-## react
+## React
 - I am using a minimal amount of [reactjs](https://reactjs.org) in the front end to handle fetching the git information
 - This code can be found in `static/js`
 - I originaly had all of the git info being fetched in the backend on page render, this drastically slowed down the load times of the site, so I decided to make the requests in the front end.
@@ -49,9 +49,3 @@ Repository for my [website](https://greerpage.com)
 - templates — all HTML files
 - websiteDjango — main configuration files like routing and settings
 - gitapi — contains code for the api endpoints
-```
-test
-does
-this
-work???
-```
