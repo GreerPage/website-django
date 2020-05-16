@@ -31,7 +31,7 @@ Repository for my [website](https://greerpage.com)
 
 ## Python
 
-- The bakcend python framework I am using is called [Django](https://www.djangoproject.com/)
+- The backend python framework I am using is called [Django](https://www.djangoproject.com/)
 - It has a fairly complex file structure that you can read more about [here](https://docs.djangoproject.com/en/3.0/intro/tutorial01/)
 - Django has lots of features that are meant for large scale applications not like this one and it is kind of overkill for my site
 - This is why I might be changing to [Flask](https://flask.palletsprojects.com/en/1.1.x/) in the future
@@ -49,3 +49,9 @@ Repository for my [website](https://greerpage.com)
 - templates — all HTML files
 - websiteDjango — main configuration files like routing and settings
 - gitapi — contains code for the api endpoints
+```
+test
+does
+this
+work???
+```
