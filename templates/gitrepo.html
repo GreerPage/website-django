@@ -29,7 +29,7 @@
             <h1 style="font-weight: normal;">more pages</h1>
             <ul>
                 {% for key, values in repos.items%}
-                    <li><a href="{{values.url}}" target="_blank"class="projlist">{{key}}</a><p style='display: inline;'> — {{values.d}}</p></li>
+                    <li><a href="/projects/{{value}}" target="_blank"class="projlist">{{key}}</a><p style='display: inline;'> — {{values.d}}</p></li>
                 {% endfor %}
             </ul>
         </div>

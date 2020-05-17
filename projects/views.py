@@ -41,7 +41,6 @@ def get_repos():
         if repo.owner.login == username:
             repos[repo.name] = {}
             repos[repo.name]['d'] = repo.description
-            repos[repo.name]['url'] = repo.html_url
     return repos
 
 def sam(request):
