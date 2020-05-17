@@ -38,14 +38,15 @@ def git_pages(request, reponame):
 def getREADME(repo):
     try:
         readme = repo.get_contents('README.md')
-        readme = (base64.b64decode(readme.content).decode('Utf-8'))
+        readme = base64.b64decode(readme.content).decode('Utf-8')
         return readme
     except:
         return 'ERROR: Cannot find README.md in this repository :('
 
 def getLanguages(repo):
     total = 0
-    langs = requests.get(repo.languages_url, headers = {'Authorization': 'token {}'.format(token)}).json()
+    langs = requests.get(repo.languages_url).json()
+    print(repo.languages_url)
     for key in langs:
         total += langs[key]
     for key in langs:
