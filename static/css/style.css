@@ -15,11 +15,12 @@ html, body {
 }
 .navbar {
   z-index: 100;
-  position: absolute;
-  top: 20px;
-  left: 2%;
+  position: fixed;
+  top: 0px;
   height: 20px;
-  width: 60%;
+  width: 100%;
+  height: 70px;
+
 }
 .mobile-nav {
   display: none;
@@ -140,7 +141,9 @@ html, body {
   cursor: pointer;
   padding: 30px;
   border-radius: 12px;
-  font-family: 'Roboto', sans-serif;
+  position: relative;
+  top: 20px;
+  left: 2%;
 }
 .link1{
   z-index: 11;
@@ -150,7 +153,9 @@ html, body {
   cursor: pointer;
   padding: 30px;
   border-radius: 12px;
-  font-family: 'Roboto', sans-serif;
+  position: relative;
+  top: 20px;
+  left: 2%;
 }
 .project-main {
   width: 75%;
@@ -453,7 +458,7 @@ html, body {
     width: 100%;
     min-height: 60px;
     background-color: white;
-    position: absolute;
+    position: fixed;
   }
   .mobile-nav a {
     width: fit-content;
@@ -469,7 +474,7 @@ html, body {
   #more-links {
     z-index: 9;
     position: absolute;
-    top: -120px;
+    top: -130px;
     background-color: white;
     width: 100%;
     transition: all 0.5s ease 0s;

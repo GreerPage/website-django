@@ -73,7 +73,7 @@ function ReadMe(props) {
     else {
         return (
             r('div', {className: 'readme'},
-                r('div', {className: 'readmetop'}, r('p', {style: {margin: 0, paddingTop: '10px', paddingLeft: '10px'}}, 'readme')),
+                r('div', {className: 'readmetop'}, r('p', {style: {margin: 0, paddingTop: '10px', paddingLeft: '10px'}}, 'README')),
                 r('div', {style: { padding: '7%', paddingTop: '0px'}, dangerouslySetInnerHTML: md(readme)})
             )
         ) 

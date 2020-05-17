@@ -1,7 +1,7 @@
 class Loading extends React.Component {
     constructor() {
         super();
-        this.messages = ['petting octocat...', 'flying to mars...', 'saving the tutrles...', 'catching gerbals...', 'feeding pidgeons...', 'waiting for backend wizards to awaken...', 'donating eyes to cyclopses...', 'hopping on one leg...', 'bootlegging nuclear launch codes...'];
+        this.messages = ['petting octocat...', 'flying to mars...', 'saving the tutrles...', 'catching gerbals...', 'feeding pidgeons...', 'waiting for backend wizards to awaken...', 'donating eyes to cyclopses...', 'hopping on one leg...', 'bootlegging nuclear launch codes...', 'crunching numbers...'];
         this.state = {message: this.messages[Math.floor(Math.random() * this.messages.length)]};
     }
     componentDidMount() {

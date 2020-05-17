@@ -22,13 +22,15 @@
         <a class="link{{linknum}}" href="/about">About</a>
         <a class="link{{linknum}}" href="/projects">Projects</a>
     </div>
-    <div id="more-links" class="mobile-nav">
+    <div class="mobile-nav">
+        <div style="z-index: 10; position: relative; background-color: white;">
+            <a style="width: fit-content" href="/">Greer Page</a>
+            <button class="menu-button" onclick="display()"><i class="fas fa-bars fa-2x"></i></button> 
+        </div>
+        <div id="more-links" class="mobile-nav">
             <a style="width: 100%" href="/about">About</a>
             <a style="width: 100%" href="/projects">Projects</a>
-    </div>
-    <div class="mobile-nav">
-        <a style="width: fit-content" href="/">Greer Page</a>
-        <button class="menu-button" onclick="display()"><i class="fas fa-bars fa-2x"></i></button>    
+        </div>
     </div>
     {% block body %}{% endblock %}
     {% if bottom == True %}    
@@ -49,7 +51,6 @@
             © 2020 Greer Page
         </p>
         <div>
-            <p><a href="https://www.djangoproject.com/" target="_blank" style='color: white'>Django</a></p>
             <p><a href="https://github.com/GreerPage/website-django" target="_blank" style='color: white'>The site's source code</a></p>
             <p><a href="https://github.com/GreerPage" target="_blank" style='color: white'>My Github</a></p>
         </div>

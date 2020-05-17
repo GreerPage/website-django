@@ -28,14 +28,17 @@ function Slide(idname){
 function display() {
     var ele = document.getElementById('more-links');
     var dis = getComputedStyle(ele).top;
-    if(dis === "-120px") {
+    if(dis === "-130px") {
         ele.style.top = '60px';
         return;
     }
     else {
-        ele.style.top = '-120px';
+        ele.style.top = '-130px';
         return;
     }  
+}
+function scroll() {
+    console.log('document.body.scrollTop');
 }
 function displayList() {
     DisplayIdToggle('git-langs-list-container');
@@ -47,3 +50,22 @@ function displayList() {
         $('.repo-page-info').css('margin-bottom', '50px');
     }
 }
+$(document).ready(() => {
+    document.body.onscroll = () => {
+        if (window.pageYOffset > 0) {
+            document.getElementById('navbar').style.backgroundColor = 'white';
+            var elems = document.getElementsByClassName('link');
+            for (let i in elems) {
+                elems[i].className = "link link1";
+            }
+        }
+        else if (window.pageYOffset == 0) {
+            document.getElementById('navbar').style.backgroundColor = 'transparent';
+            var elems = document.getElementsByClassName('link link1');
+            for (let i in elems) {
+                elems[i].className = "link";
+            }
+            if (elems.length > 0) elems[0].className = 'link';
+        }
+    }  
+});
