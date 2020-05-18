@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
+
 
 def error_404(request, exception):
         data = {
@@ -29,3 +31,4 @@ def error_403(request, exception):
             'linknum': '1',
         }
         return render(request,'error.html', data)
+

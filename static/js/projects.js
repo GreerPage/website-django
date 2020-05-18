@@ -22,7 +22,7 @@ class Git extends React.Component {
         this.state = {loading: true, data: ''};
     }
     getGitInfo() {
-        fetch('api/projects')
+        fetch('/api/projects')
             .then(res => res.json())
             .then(data => {
                  var info = Object.keys(data).map((val) => {

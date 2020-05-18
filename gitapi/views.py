@@ -46,7 +46,6 @@ def getREADME(repo):
 def getLanguages(repo):
     total = 0
     langs = requests.get(repo.languages_url).json()
-    print(repo.languages_url)
     for key in langs:
         total += langs[key]
     for key in langs:

@@ -114,7 +114,8 @@ class GitPage extends React.Component {
 }
 
 $(document).ready(() => {
-    var reponame = window.location.pathname.replace('/projects/', '')
+    var reponame = window.location.pathname.replace('/projects/', '').replace('/', '')
+
     ReactDOM.render(
         r(GitPage, {name: reponame}),
         document.getElementById('react-root')
