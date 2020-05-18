@@ -27,7 +27,7 @@ token = '<your github auth token>'
 - When it gets a response, it will return the information need for react to render the page.
 ```javascript
 // basic example of how react and django communicate
-fetch('api/projects/website-django')
+fetch('/api/projects/website-django')
     .then(res => res.json())
     .then(data => {
         this.setState({data: data});
