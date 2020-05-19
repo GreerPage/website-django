@@ -89,9 +89,8 @@ class GitPage extends React.Component {
         fetch('/api/projects/' + this.props.name)
             .then(res => res.json())
             .then(data => {
-                this.setState({data: data[this.props.name]});
+                this.setState({loading: false, data: data[this.props.name]});
                 document.getElementById('gitpagelink').href = data[this.props.name].url
-                this.setState({loading: false});
             });
     }
     componentDidMount() {
@@ -115,7 +114,6 @@ class GitPage extends React.Component {
 
 $(document).ready(() => {
     var reponame = window.location.pathname.replace('/projects/', '').replace('/', '')
-
     ReactDOM.render(
         r(GitPage, {name: reponame}),
         document.getElementById('react-root')

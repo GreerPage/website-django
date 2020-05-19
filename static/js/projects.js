@@ -28,8 +28,7 @@ class Git extends React.Component {
                  var info = Object.keys(data).map((val) => {
                     return r(GitContainer, {name: val, data: data[val], key: val});
                 });
-                this.setState({data: info});
-                this.setState({loading: false});
+                this.setState({loading: false, data: info});
             });
     }
     componentDidMount() {

@@ -11,7 +11,7 @@ Repository for my [website](https://greerpage.com)
 # gitapi/sectrets.py
 token = '<your github auth token>'
 ```
-- find out more about github auth tokens [here](https://github.com/settings/tokens)
+- Create a token [here](https://github.com/settings/tokens)
 - Cd to the root directory and run `python3 manage.py migrate` 
 - Then run `python3 manage.py runserver` this will start the server on [http://localhost:8000](http://localhost:8000)
 - If you recieved an error this might be due to some sort of error with `gitapi/secrets.py`
