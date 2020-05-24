@@ -1,19 +1,7 @@
 {% extends 'head.html' %}
 {% load static %}
 {% block head %}
-    <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
-    {% if host == 'greerpage.com' %}
-        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    {% else %}
-        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    {% endif %}
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-light.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-    <script src="{% static 'js/globalComps.js' %}"></script>
-    <script src="{% static 'js/gitPage.js' %}"></script>
+    
     <title>projects — {{reponame}}</title>
 {% endblock %}
 {% block body %}
@@ -34,4 +22,17 @@
             </ul>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+    {% if host == 'greerpage.com' %}
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    {% else %}
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    {% endif %}
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script src="{% static 'js/globalComps.js' %}"></script>
+    <script src="{% static 'js/gitPage.js' %}"></script>
 {% endblock %}

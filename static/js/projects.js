@@ -43,10 +43,7 @@ class Git extends React.Component {
         }
     }
 }
-
-$(document).ready(() => {
-    ReactDOM.render(
-        r(Git, null, null),
-        document.getElementById('root')
-    ); 
-});
+ReactDOM.render(
+    r(Git, null, null),
+    document.getElementById('root')
+);

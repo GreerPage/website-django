@@ -40,31 +40,21 @@ function display() {
 function scroll() {
     console.log('document.body.scrollTop');
 }
-function displayList() {
-    DisplayIdToggle('git-langs-list-container');
-    padding = $('.repo-page-info').css('margin-bottom');
-    if(padding === '50px') {
-        $('.repo-page-info').css('margin-bottom', '20px');
+
+
+document.body.onscroll = () => {
+    if (window.pageYOffset > 0) {
+        document.getElementById('navbar').style.backgroundColor = 'white';
+        var elems = document.getElementsByClassName('link');
+        Array.from(elems).forEach((item) => {
+            item.className = 'link link1'
+        });
     }
-    else {
-        $('.repo-page-info').css('margin-bottom', '50px');
+    else if (window.pageYOffset === 0) {
+        document.getElementById('navbar').style.backgroundColor = 'transparent';
+        var elems = document.getElementsByClassName('link link1');
+        Array.from(elems).forEach((item) => {
+            item.className = 'link'
+        });
     }
-}
-$(document).ready(() => {
-    document.body.onscroll = () => {
-        if (window.pageYOffset > 0) {
-            document.getElementById('navbar').style.backgroundColor = 'white';
-            var elems = document.getElementsByClassName('link');
-            Array.from(elems).forEach((item) => {
-                item.className = 'link link1'
-            });
-        }
-        else if (window.pageYOffset === 0) {
-            document.getElementById('navbar').style.backgroundColor = 'transparent';
-            var elems = document.getElementsByClassName('link link1');
-            Array.from(elems).forEach((item) => {
-                item.className = 'link'
-            });
-        }
-    }  
-});
+}  

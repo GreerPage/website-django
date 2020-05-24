@@ -18,7 +18,7 @@ function highlight(str, lang) {
 function LanguageBars(props) {
     var data = props.data;
     return (
-        r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}, onClick: () => displayList()}, 
+        r('div', {className: 'language-bars-container', style: {borderRadius: '5px'}, onClick: () => DisplayIdToggle('git-langs-list-container')}, 
             Object.keys(data).map((val, index) => {
                 let info = data[val];
                 return r(LanguageBar, {data: info, order: index, total: Object.keys(data).length, key: index});
@@ -112,10 +112,8 @@ class GitPage extends React.Component {
     }
 }
 
-$(document).ready(() => {
-    var reponame = window.location.pathname.replace('/projects/', '').replace('/', '')
-    ReactDOM.render(
-        r(GitPage, {name: reponame}),
-        document.getElementById('react-root')
-    );
-});
+var reponame = window.location.pathname.replace('/projects/', '').replace('/', '')
+ReactDOM.render(
+    r(GitPage, {name: reponame}),
+    document.getElementById('react-root')
+);

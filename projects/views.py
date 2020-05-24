@@ -40,7 +40,7 @@ def get_repos():
     for repo in g.get_user().get_repos(visibility='public'):
         if repo.owner.login == username:
             repos[repo.name] = {}
-            repos[repo.name]['d'] = repo.description
+            repos[repo.name]['d'] = repo.description  
     return repos
 
 def sam(request):
