@@ -17,11 +17,15 @@ def projects_page(request):
     repos = {}
     for repo in g.get_user().get_repos(visibility='public'):
         if repo.owner.login == username:
-            repos[repo.name] = {}
-            repos[repo.name]['url'] = repo.html_url
-            repos[repo.name]['description'] = repo.description
-            repos[repo.name]['language'] = repo.language
-            repos[repo.name]['languageColor'] = vars_file.repocolors[repo.language]
+            if repo.name != username:
+                repos[repo.name] = {}
+                repos[repo.name]['url'] = repo.html_url
+                repos[repo.name]['description'] = repo.description
+                repos[repo.name]['language'] = repo.language
+                if repo.language == None:
+                    repos[repo.name]['languageColor'] = '#ffffff'
+                else:
+                    repos[repo.name]['languageColor'] = vars_file.repocolors[repo.language]
     
     return JsonResponse(repos)
 
